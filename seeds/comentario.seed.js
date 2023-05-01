@@ -1,4 +1,4 @@
-
+const Comentario = require("../models/comentario.model")
 const dbConn = require("../config/db.config.mongo");
 
 const comentario = [
@@ -43,7 +43,7 @@ const comentario = [
 
 try {
     dbConn.conectar;
-    Ejercicio.insertMany(ejercicios)
+    Comentario.insertMany(comentario)
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
 } catch (err) {
