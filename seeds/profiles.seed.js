@@ -23,3 +23,12 @@ const profiles = [
         canDelete:0,
     }
 ]
+
+try {
+    dbConn.conectar;
+    Comentario.insertMany(comentario)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
+} catch (err) {
+    console.log("Error al conectar con la base de datos");
+}

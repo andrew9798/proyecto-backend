@@ -65,6 +65,8 @@ Articulo.delete_Articulo = async function(id) {
     return Articulo.findByIdAndDelete(id)
 }
 
+module.exports = Articulo;
+
 
 
 

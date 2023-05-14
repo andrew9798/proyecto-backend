@@ -1,4 +1,5 @@
 const Comentario= require("../models/comentario.model");
+const Articulo= require("../models/articulos.model");
 const Usuario= require("../models/usuario.model");
 const utils = require("./utils");
 const dbConn = require("../config/db.config.mongo");
@@ -8,7 +9,6 @@ const BaseDatosNoConectadaError = require("../errors/BaseDatosNoConectadaError")
 const MissingDatosError = require("../errors/MissingDatosError");
 const ParametrosIncorrectosError = require("../errors/ParametrosIncorrectosError");
 const ErrInterno = require("../errors/ErrInterno");
-
 const logger = require("../logs/logger");
 
 /**
@@ -23,7 +23,7 @@ const logger = require("../logs/logger");
 exports.get_comentario = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar;
-        await Ejercicio.get_comentario()
+        await Comentario.get_comentario()
             .then((comentario) => res.status(200).json(comentario), logger.access.info(utilsLogs.accesoCorrecto("comentario")))
             .catch((err) => {
                 logger.error.error(utilsLogs.errInterno(err));
@@ -51,46 +51,61 @@ exports.get_comentario = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 
-exports.get_comentario_by_id = utils.wrapAsync(async function (req, res, next) {
-    let id = req.params.id;
+exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, next) {
+    let id_articulo = req.params.id;
 
-    try {
-        await dbConn.conectar;
+    if (id_articulo) {
+
         try {
-            await Comentario.get_comentario_by_id(id)
-                .then((comentario) => {
-                    if (comentario === null) {
-                        logger.warning.warn(utilsLogs.noExiste("comentario"));
-                        throw new NoExisteError(utils.noExiste("comentario"));
-                    } else {
-                        logger.access.info(utilsLogs.accesoCorrecto(`el comentario ${comentario._id}`));
-                        res.status(200).json(comentario);
-                    }
-                })
-                .catch((err) => {
-                    if (!(err instanceof NoExisteError)) {
-                        logger.warning.warn(utilsLogs.parametrosIncorrectos());
-                        throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
-                    } else {
-                        throw err;
-                    }
-                })
-        } catch (err) {
-            if (!(err instanceof NoExisteError)) {
+            await dbConn.conectar;
+
+            try {
+                await Articulo.get_articulo_by_id(id_articulo)
+                    .then(async (rutina) => {
+                        if (rutina === null) {
+                            res.status(404).json(utils.noExiste("articulo"));
+                            logger.warning.warn(utilsLogs.noExiste("articulo"))
+                        } else {
+                            try {
+                                await dbConn.conectar;
+                                try {
+                                    await Ejercicio.get_comentario_by_articulo(id_articulo)
+                                        .then((comentario) => {
+                                            res.status(200).json(comentario)
+                                            logger.access.info(utilsLogs.accesoCorrecto(`Comentarios del articulo: ${id_articulo}`))
+                                        })
+                                        .catch((err) => {
+                                            res.status(406).json(utils.parametrosIncorrectos());
+                                            logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                                        });
+                                } catch (err) {
+                                    res.status(406).json(utils.parametrosIncorrectos());
+                                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                                }
+                            } catch (err) {
+                                res.status(500).json(utils.baseDatosNoConectada());
+                                logger.error.error(utilsLogs.baseDatosNoConectada());
+                            }
+                        }
+                    })
+                    .catch((err) => {
+                        res.status(406).json(utils.parametrosIncorrectos())
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                    })
+            } catch (err) {
+                res.status(500).json(utils.baseDatosNoConectada());
                 logger.error.error(utilsLogs.baseDatosNoConectada());
-                throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
-            } else {
-                throw err;
             }
-        }
-    } catch (err) {
-        if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+
+        } catch (err) {
+            res.status(500).json(utils.baseDatosNoConectada());
             logger.error.error(utilsLogs.baseDatosNoConectada());
-            throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
-        } else {
-            throw err;
         }
+    } else {
+        logger.warning.warn(utilsLogs.faltanDatosAcceso("comentario por articulo"));
+        throw new MissingDatosError(utils.missingDatos());
     }
+
 })
 
 
@@ -107,7 +122,7 @@ exports.get_comentario_by_id = utils.wrapAsync(async function (req, res, next) {
 exports.add_comentario = utils.wrapAsync(async function (req,res,next) {
     let comentario = req.body;
 
-    if(comentario.usuario && comentario.id_usuario && comentario.id_comentario && comentario.titulo %% comentario.cuerpo){
+    if(comentario.usuario && comentario.id_usuario && comentario.id_comentario && comentario.titulo && comentario.cuerpo){
         if(err){
             res.status(406).json(utils.parametrosIncorrectos);
             logger.warning.warn(utilsLogs.parametrosIncorrectos());

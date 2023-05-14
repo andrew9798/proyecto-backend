@@ -4,7 +4,7 @@ const usuario = [
     {
         usuario: "Andres",
         id_usuario: 1,
-        correo: "andres1298@gmail.com",
+        correo: "andresganga1298@gmail.com",
         contrasenya: "12345678",
     }
    
