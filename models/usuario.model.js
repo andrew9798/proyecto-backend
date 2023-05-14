@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const articuloSchema = new mongoose.Schema({
+const usuarioSchema = new mongoose.Schema({
     id_usuario: {
         type: Number,
         required: true
@@ -19,4 +19,20 @@ const articuloSchema = new mongoose.Schema({
     }
 })
 
-module.exports = Comentario;
+/**
+ * Generación del modelo usuario a partir del schema.
+ */
+
+const Usuario = mongoose.model("usuario",comentarioSchema);
+
+/**
+ * Recoger de la base de datos un comentario por id.
+ * @param {String} id 
+ * @returns la Promesa resultante de hacer la consulta a la base de datos.
+ */
+
+Usuario.get_usuario_by_id = async function(id) {
+    return Usuario.findById(id)
+}
+
+module.exports = Usuario;
