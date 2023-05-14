@@ -2,13 +2,72 @@ const express = require("express") //npm i express
 const cors = require("cors");
 const app = express()
 const path = require("path")
+const cookieParser = require("cookie-parser")
+const session = require("express-session"); // npm i express-session
 const morgan = require("morgan") //npm i morgan
 const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3000
+const logger = require("./logs/logger");
+const https = require("https");
 
- app.listen(port, () => {
-     console.log(`escuchando en puerto ${port}`);
- })
+//------------ validación y autorización ------------//
+
+const jwtMW = require("./middleware/jwt.mw");
+const authorization = require("./middleware/auth.mw");
+
+app.use((req, res, next) => {
+    if (
+        (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
+        ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
+    ) {
+        jwtMW.requireJWT(req, res, next)
+    } else {
+        if (req.method == "POST") {
+            next();
+        } else {
+            jwtMW.requireJWT(req, res, next);
+        }
+    }
+});
+
+app.use((req, res, next) => {
+
+    if (
+        (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
+        ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
+    ) {
+        authorization(req, res, next);
+
+    } else {
+        if (req.method == "POST") {
+            next();
+        } else {
+            authorization(req, res, next);
+        }
+    }
+});
+
+//------------- COOKIES ---------------------------//
+
+app.use("/cookieSession", function (req, res, next) {
+    res.locals.session = req.session.admin = "admin"
+    next()
+})
+
+app.get("/cookieSession", (req, res) => {
+    //No neceistas el cookieparse para ver las cookies o para añadir
+    res.cookie("SoyCookie", "Soy una Cookie Normal")
+    res.cookie("SoySecretCookie", "Soy una cookie Secreta", { signed: true })
+
+    ses = {
+        id: req.sessionID,
+        name: req.session.admin
+    }
+
+    //req.session.usuario = "Carmen";
+    res.render("cookieYsession", { ses })
+})
+
 
 
 /*------------- Aplicación del Cors* -----------------*/
@@ -28,6 +87,28 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions));
+
+//-------------- error 500 ---------------------------//
+
+app.use((err, req, res, next) => {
+    const { status = 500, message = utils.errInterno() } = err;
+    res.status(status).send(message);
+})
+
+//-------------- Levantar el servidor ------------------------//
+
+
+const httpsOptions = {
+    cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
+    key: fs.readFileSync("certificadosSSL/mi_certificado.key")
+}
+
+// createServer requiere dos parámetros: un objeto (con los certificados) y express
+https.createServer(httpsOptions, app).listen(port, () => {
+    console.log("Servidor HTTPS escuchando en puerto " + port);
+});
+
+
 
 
 
