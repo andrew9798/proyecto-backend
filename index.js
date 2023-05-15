@@ -47,6 +47,21 @@ app.use((req, res, next) => {
     }
 });
 
+
+const articulosRoutes = require("./routers/articulos.rooter");
+const comentarioRoutes = require("./routers/comentario.routes");
+const usuarioRoutes = require("./routers/usuario.routes");
+
+
+//para la versiones
+const version = "v1"
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+app.use(`/api/${version}/articulo`, articulosRoutes);
+app.use(`/api/${version}/usuarios`, usuarioRoutes);
+app.use(`/api/${version}/rutinas`, comentarioRoutes);
+
 //------------- COOKIES ---------------------------//
 
 app.use("/cookieSession", function (req, res, next) {

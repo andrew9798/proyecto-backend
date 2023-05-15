@@ -12,6 +12,14 @@ const articuloSchema = new mongoose.Schema({
     cuerpo: {
         type: String,
         required: true
+    },    
+    id_usuario: {
+        type: String,
+        required: true
+    },
+    imagen: {
+        type: String,
+        required: true
     }
 })
 

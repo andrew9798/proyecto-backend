@@ -1,7 +1,4 @@
-const mongoose = require("mongoose");
-
-const usuarioSchema = new mongoose.Schema({
-    
-})
-
-module.exports = Usuario;
+const usuarioController = require("../controllers/");
+const express = require("express");
+const router = express.Router();
+const anyadirMorgan = require("../middleware/morgan.mw");
