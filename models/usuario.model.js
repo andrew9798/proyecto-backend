@@ -27,7 +27,7 @@ const usuarioSchema = new mongoose.Schema({
  * Generación del modelo usuario a partir del schema.
  */
 
-const Usuario = mongoose.model("usuario",comentarioSchema);
+const Usuario = mongoose.model("usuario",usuarioSchema);
 
 /**
  * Recoger de la base de datos un comentario por id.
