@@ -2,10 +2,18 @@ const dbConn = require("../config/db.config.mongo");
 
 const usuario = [
     {
-        usuario: "Andres",
+        usuario: "Jero",
         id_usuario: 1,
+        correo: "jeronimo1298@gmail.com",
+        contrasenya: "12345678",
+        id_profile: 1
+    },    
+    {
+        usuario: "Andres",
+        id_usuario: 2,
         correo: "andresganga1298@gmail.com",
         contrasenya: "12345678",
+        id_profile: 2
     }
    
 ]

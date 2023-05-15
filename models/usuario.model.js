@@ -5,7 +5,7 @@ const usuarioSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    nombre: {
+    usuario: {
         type: String,
         required: true
     },
@@ -15,6 +15,10 @@ const usuarioSchema = new mongoose.Schema({
     },
     contrasenya: {
         type: String,
+        required: true
+    },
+    id_profile: {
+        type: Number,
         required: true
     }
 })
