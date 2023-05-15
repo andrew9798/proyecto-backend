@@ -1,3 +1,4 @@
+const Usuario = require("../models/usuario.model");
 const dbConn = require("../config/db.config.mongo");
 
 const usuario = [
@@ -20,7 +21,7 @@ const usuario = [
 
 try {
     dbConn.conectar;
-    Ejercicio.insertMany(ejercicios)
+    Usuario.insertMany(usuario)
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
 } catch (err) {
