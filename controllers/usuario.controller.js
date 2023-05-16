@@ -1,4 +1,4 @@
-const Usuario = require("../usuario.models/");
+const Usuario = require("../models/usuario.model");
 const utils = require("./utils")
 const logger = require("../logs/logger")
 const utilsLogs = require("./utilsLogs")
