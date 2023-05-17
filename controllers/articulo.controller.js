@@ -1,6 +1,7 @@
 const Articulo = require("../models/articulos.model");
 const utils = require("./utils");
 const dbConn = require("../config/db.config.mongo");
+const utilsLogs = require("./utilsLogs");
 
 const NoExisteError = require("../errors/NoExisteError");
 const BaseDatosNoConectadaError = require("../errors/BaseDatosNoConectadaError");
