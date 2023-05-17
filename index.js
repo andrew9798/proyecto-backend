@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3000
 const logger = require("./logs/logger");
 const https = require("https");
+const fs = require("fs");
 
 //------------ validación y autorización ------------//
 
@@ -59,7 +60,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use(`/api/${version}/articulo`, articulosRoutes);
-app.use(`/api/${version}/usuarios`, usuarioRoutes);
+// app.use(`/api/${version}/usuarios`, usuarioRoutes);
 app.use(`/api/${version}/rutinas`, comentarioRoutes);
 
 //------------- COOKIES ---------------------------//
