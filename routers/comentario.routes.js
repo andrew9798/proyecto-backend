@@ -10,7 +10,6 @@ const anyadirMorgan = require("../middleware/morgan.mw");
  */
 router.get("/", anyadirMorgan, comentarioController.get_comentario);
 
-
 /**
  * Ruta para recoger todas los comentarios por id de articulo definido en JSON
  * Llama a la función get_comentario_by_articulo de comentario.Controller
