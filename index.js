@@ -26,7 +26,7 @@ app.use((req, res, next) => {
         if (req.method == "POST") {
             next();
         } else {
-            jwtMW.requireJWT(req, res, next);
+            jwtMW.requireJWT(req, res, next);iiiiiiii
         }
     }
 });
@@ -61,7 +61,7 @@ app.use(express.json())
 
 app.use(`/api/${version}/articulo`, articulosRoutes);
 // app.use(`/api/${version}/usuarios`, usuarioRoutes);
-app.use(`/api/${version}/rutinas`, comentarioRoutes);
+app.use(`/api/${version}/comentario`, comentarioRoutes);
 
 //------------- COOKIES ---------------------------//
 
@@ -120,9 +120,14 @@ const httpsOptions = {
 }
 
 // createServer requiere dos parámetros: un objeto (con los certificados) y express
-https.createServer(httpsOptions, app).listen(port, () => {
-    console.log("Servidor HTTPS escuchando en puerto " + port);
-});
+// https.createServer(httpsOptions, app).listen(port, () => {
+//     console.log("Servidor HTTPS escuchando en puerto " + port);
+// });
+
+
+ app.listen(port, () => {
+     console.log(`escuchando en puerto ${port}`);
+ })
 
 
 
