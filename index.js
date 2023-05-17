@@ -13,40 +13,40 @@ const fs = require("fs");
 
 //------------ validación y autorización ------------//
 
-const jwtMW = require("./middleware/jwt.mw");
-const authorization = require("./middleware/auth.mw");
+// const jwtMW = require("./middleware/jwt.mw");
+// const authorization = require("./middleware/auth.mw");
 
-app.use((req, res, next) => {
-    if (
-        (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
-        ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
-    ) {
-        jwtMW.requireJWT(req, res, next)
-    } else {
-        if (req.method == "POST") {
-            next();
-        } else {
-            jwtMW.requireJWT(req, res, next);iiiiiiii
-        }
-    }
-});
+// app.use((req, res, next) => {
+//     if (
+//         (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
+//         ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
+//     ) {
+//         jwtMW.requireJWT(req, res, next)
+//     } else {
+//         if (req.method == "POST") {
+//             next();
+//         } else {
+//             jwtMW.requireJWT(req, res, next);iiiiiiii
+//         }
+//     }
+// });
 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
 
-    if (
-        (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
-        ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
-    ) {
-        authorization(req, res, next);
+//     if (
+//         (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
+//         ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
+//     ) {
+//         authorization(req, res, next);
 
-    } else {
-        if (req.method == "POST") {
-            next();
-        } else {
-            authorization(req, res, next);
-        }
-    }
-});
+//     } else {
+//         if (req.method == "POST") {
+//             next();
+//         } else {
+//             authorization(req, res, next);
+//         }
+//     }
+// });
 
 
 const articulosRoutes = require("./routers/articulos.rooter");
