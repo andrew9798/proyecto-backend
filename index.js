@@ -60,7 +60,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use(`/api/${version}/articulo`, articulosRoutes);
-// app.use(`/api/${version}/usuarios`, usuarioRoutes);
+app.use(`/api/${version}/usuarios`, usuarioRoutes);
 app.use(`/api/${version}/comentario`, comentarioRoutes);
 
 //------------- COOKIES ---------------------------//

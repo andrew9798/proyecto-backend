@@ -1,6 +1,6 @@
-const Comentario= require("../models/comentario.model");
-const Articulo= require("../models/articulos.model");
-const Usuario= require("../models/usuario.model");
+const Comentario = require("../models/comentario.model");
+const Articulo = require("../models/articulos.model");
+const Usuario = require("../models/usuario.model");
 const utils = require("./utils");
 const dbConn = require("../config/db.config.mongo");
 const utilsLogs = require("./utilsLogs");
@@ -55,7 +55,7 @@ exports.get_comentario = utils.wrapAsync(async function (req, res, next) {
 
 exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, next) {
     let id_articulo = req.params.id_articulo;
-
+    console.log(id_articulo);
     if (id_articulo) {
 
         try {
@@ -121,18 +121,101 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
  * @param {JSON Object} res 
  */
 
-exports.add_comentario = utils.wrapAsync(async function (req,res,next) {
+exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
     let comentario = req.body;
 
-    if(comentario.usuario && comentario.id_usuario && comentario.id_comentario && comentario.titulo && comentario.cuerpo){
-        if(err){
-            res.status(406).json(utils.parametrosIncorrectos);
-            logger.warning.warn(utilsLogs.parametrosIncorrectos());
+
+    if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
+        try {
+            await Usuario.findById(ejercicio.id_usuario, async function (err, user) {
+
+                if (err) {
+                    res.status(406).json(utils.parametrosIncorrectos());
+                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                }
+                else {
+                    try {
+                        await Comentario.add_comentario(comentario)
+                            .then((rest) => {
+                                res.status(201).json(utils.creadoCorrectamente('ejercicio'));
+                                logger.access.info(utilsLogs.creadoCorrectamente("ejercicio", ejercicio._id));
+
+                            })
+                            .catch((err) => {
+                                res.status(406).json(utils.parametrosIncorrectos())
+                                logger.warning.warn(utilsLogs.parametrosIncorrectos());
+
+                            });
+                    } catch (err) {
+                        res.status(500).json(utils.baseDatosNoConectada());
+                        logger.error.error(utilsLogs.baseDatosNoConectada());
+                    }
+                }
+            })
+
+        } catch (err) {
+            res.status(500).json(utils.baseDatosNoConectada());
+            logger.error.error(utils.baseDatosNoConectada());
         }
-        else{
-            
+    } else {
+        res.status(406).json(utils.missingDatos());
+        throw new MissingDatosError(utils.missingDatos())
+    }
+})
+
+
+/**
+ * Controlador para eliminar un ejercicio identificada según id definido en los parámetros de la request.
+ * Llama a la fución del modelo Ejercicio delete_ejercicio.
+ * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
+ * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
+ * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devuelve código 406 y un mensaje avisando de ello.
+ * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
+ * @param {JSON Object} req 
+ * @param {JSON Object} res 
+ */
+
+exports.delete_comentario = utils.wrapAsync(async function (req, res) {
+    let id = req.params.id;
+
+    try {
+        await dbConn.conectar;
+        try {
+            await Comentario.delete_comentario(id)
+                .then((del) => {
+                    if (del === null) {
+                        logger.warning.warn(utilsLogs.noExiste("Comentario"));
+                        throw new NoExisteError(utils.noExiste("Comentario"));
+                    } else {
+                        res.status(200).json(utils.borradoCorrectamente("Comentario"));
+                        logger.access.info(utilsLogs.borradoCorrectamente("comentario", del._id))
+                    }
+                })
+                .catch((err) => {
+                    if (!(err instanceof NoExisteError)) {
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                        throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+                    } else {
+                        throw err;
+                    }
+                });
+        } catch (err) {
+            if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+                logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+            } else {
+                throw err;
+            }
+        }
+    } catch (err) {
+        if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+            logger.error.error(utilsLogs.baseDatosNoConectada());
+            throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
+        } else {
+            throw err;
         }
     }
+
 })
 
 

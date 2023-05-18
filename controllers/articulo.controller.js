@@ -54,7 +54,7 @@ const logger = require("../logs/logger");
  */
 exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
     let id = req.params.id;
-
+    console.log(id);
     try {
         await dbConn.conectar
         try {
