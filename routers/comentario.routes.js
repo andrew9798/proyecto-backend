@@ -15,6 +15,6 @@ router.get("/", anyadirMorgan, comentarioController.get_comentario);
  * Llama a la función get_comentario_by_articulo de comentario.Controller
  * Ej de ruta: http://localhost:3000/api/v1/ejercicio/usuario {id_usuario a través de JSON}
  */
-router.post("/usuario", anyadirMorgan, comentarioController.get_comentario_by_articulo);
+router.post("/articulo", anyadirMorgan, comentarioController.get_comentario_by_articulo);
 
 module.exports = router
