@@ -30,6 +30,13 @@ const usuarioSchema = new mongoose.Schema({
 const Usuario = mongoose.model("usuario",usuarioSchema);
 
 /**
+ * Recoger de la base de datos todas los usuarios sin ningún filtro
+ */
+Usuario.get_usuario = async function () {
+    return Usuario.find();
+}
+
+/**
  * Recoger de la base de datos un comentario por id.
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
