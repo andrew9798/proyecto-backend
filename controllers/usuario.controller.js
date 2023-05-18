@@ -1,4 +1,5 @@
 const Usuario = require("../models/usuario.model");
+const dbConn = require("../config/db.config.mongo");
 const utils = require("./utils")
 const logger = require("../logs/logger")
 const utilsLogs = require("./utilsLogs")
