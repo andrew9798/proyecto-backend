@@ -32,7 +32,7 @@ const Usuario = mongoose.model("usuario",usuarioSchema);
 /**
  * Recoger de la base de datos todas los usuarios sin ningún filtro
  */
-Usuario.get_usuario = async function () {
+Usuario.get_usuarios = async function () {
     return Usuario.find();
 }
 

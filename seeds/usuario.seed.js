@@ -26,4 +26,5 @@ try {
     .catch((err) => console.log(err))
 } catch (err) {
     console.log("Error al conectar con la base de datos");
+    console.log("aquí está el error");
 }
