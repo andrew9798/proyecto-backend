@@ -63,8 +63,8 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
 
             try {
                 await Articulo.get_articulo_by_id(id_articulo)
-                    .then(async (rutina) => {
-                        if (rutina === null) {
+                    .then(async (articulo) => {
+                        if (articulo === null) {
                             res.status(404).json(utils.noExiste("articulo"));
                             logger.warning.warn(utilsLogs.noExiste("articulo"))
                         } else {

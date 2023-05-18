@@ -7,7 +7,7 @@ const comentario = [
 
         usuario: "Andres",
         id_usuario: 1,
-        id_comentario: 1,
+        id_articulo: 1,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
@@ -16,7 +16,7 @@ const comentario = [
 
         usuario: "Andres",
         id_usuario: 1,
-        id_comentario: 2,
+        id_articulo: 1,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
@@ -25,7 +25,7 @@ const comentario = [
 
         usuario: "Jose",
         id_usuario: 2,
-        id_comentario: 3,
+        id_articulo: 2,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
@@ -33,7 +33,7 @@ const comentario = [
 
         usuario: "Antonio",
         id_usuario: 3,
-        id_comentario: 4,
+        id_articulo: 2,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
