@@ -25,12 +25,9 @@ const bcrypt = require("bcrypt");
 exports.get_usuarios = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar;
-        console.log("otro error")
-        Usuario.get_usuarios()
+        await Usuario.get_usuarios()
             .them((usuarios) => {
-                console.log("entra aquí")
                 res.status(200).json(usuarios), logger.access.info(utilsLogs.accesoCorrecto("usuario"))
-                console.log("pasa aquí")
             })
             .catch((err) => {
                 logger.error.error(utilsLogs.errInterno(err));
@@ -100,4 +97,23 @@ exports.get_usuario_by_id = utils.wrapAsync(async function (req, res, next) {
     }    
 
 })
+
+exports.get_usuario_by_correo_and_password = async function(req,res,next){
+    const emailycontraseña = req.body
+    try{
+        try{
+            await Usuario.findByemail(emailycontraseña.Correo, async function (err, user) {
+                //Terminar función
+            })
+        }catch{
+            res.status(406).json(utils.parametrosIncorrectos()),
+            logger.warning.warn(utilsLogs.parametrosIncorrectos());
+        }
+    }catch{
+        res.status(500).json((utils.baseDatosNoConectada())),
+        logger.error.err(utilsLogs.baseDatosNoConectada());
+    }
+}
+
+
 

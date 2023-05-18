@@ -46,4 +46,33 @@ Usuario.get_usuario_by_id = async function(id) {
     return Usuario.findById(id)
 }
 
+/**
+ * Guardar un nuevo articulo en la base de datos
+ * @param {JSON Object} usuario 
+ * @returns la Promesa resultante de hacer la consulta a la base de datos.
+ */
+Usuario.add_usuario = async function(usuario) {
+    const nuevoUsuario = new Usuario(usuario);
+    return nuevoUsuario.save()
+}
+
+/**
+ * Editar un usuario en la base de datos definida por su id
+ * @param {String} id 
+ * @param {JSON Object} articulo 
+ * @returns la Promesa resultante de hacer la consulta a la base de datos
+ */
+Usuario.edit_usuario = async function(id, usuario) {
+    return Usuario.findByIdAndUpdate(id, usuario, {runValidators: true, new: true, rawResult: true})
+}
+
+/**
+ * Borrar un usuario de la base de datos definida por su id
+ * @param {String} id 
+ * @returns la Promesa resultante de hacer la consulta a la base de datos
+ */
+Usuario.delete_Usuario = async function(id) {
+    return Usuario.findByIdAndDelete(id)
+}
+
 module.exports = Usuario;

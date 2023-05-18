@@ -57,10 +57,8 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
     let id_articulo = req.params.id_articulo;
     console.log(id_articulo);
     if (id_articulo) {
-
         try {
             await dbConn.conectar;
-
             try {
                 await Articulo.get_articulo_by_id(id_articulo)
                     .then(async (articulo) => {
@@ -134,6 +132,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                     logger.warning.warn(utilsLogs.parametrosIncorrectos());
                 }
                 else {
+                    await dbConn.conectar;
                     try {
                         await Comentario.add_comentario(comentario)
                             .then((rest) => {
@@ -163,6 +162,73 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
     }
 })
 
+/**
+ * Controlador para editar un ejercicio definida en el body de la request e identificada según id definido en los parámetros de la request.
+ * Llama a la fución del modelo Ejercicio edit_ejercicio.
+ * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
+ * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
+ * Si alguno de los datos es incorrecto (no coincide con las restricciones de la base de datos) o no está definido, devuelve código 406 y un mensaje avisando de ello.
+ * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
+ * @param {JSON Object} req 
+ * @param {JSON Object} res 
+ */
+
+exports.edit_comentario = utils.wrapAsync(async function (req, res, next) {
+    let id = req.params.id;
+    let comentario = req.body;
+
+
+    if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
+        try {
+            await Usuario.findById(comentario.id_usuario, async function (err, user) {
+                if (err) {
+                    res.status(406).json(utils.parametrosIncorrectos());
+                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
+
+                } else {
+                    try {
+                        await dbConn.conectar;
+                        try {
+                            await Usuario.edit_usuario(id, usuario)
+                                .then((result) => {
+                                    if (result.value === null) {
+                                        res.status(404).json(utils.noExiste("ejercicio"));
+                                        logger.warning.warn(utilsLogs.noExiste("ejercicio"));
+                                    } else {
+                                        res.status(200).json(utils.editadoCorrectamente("ejercicio"));
+                                        logger.access.info(utilsLogs.actualizadoCorrectamente("ejercicio", result.value._id));
+
+                                    }
+                                })
+                                .catch((err) => {
+                                    res.status(406).json(utils.parametrosIncorrectos())
+                                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                                });
+
+                        } catch (err) {
+                            res.status(406).json(utils.parametrosIncorrectos());
+                            logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                        }
+
+                    } catch (err) {
+                        res.status(500).json(utils.baseDatosNoConectada());
+                        logger.error.error(utilsLogs.baseDatosNoConectada());
+                    }
+
+                }
+            })
+        } catch (err) {
+            res.status(500).json(utils.baseDatosNoConectada());
+            logger.error.error(utilsLogs.baseDatosNoConectada());
+
+        }
+    } else {
+        logger.warning.warn(utilsLogs.faltanDatosAcceso("editar una tarea"));
+        throw new MissingDatosError(utils.missingDatos())
+    }
+
+})
+
 
 /**
  * Controlador para eliminar un ejercicio identificada según id definido en los parámetros de la request.
@@ -175,7 +241,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 
-exports.delete_comentario = utils.wrapAsync(async function (req, res) {
+exports.delete_comentario_by_articulo = utils.wrapAsync(async function (req, res) {
     let id = req.params.id;
 
     try {
