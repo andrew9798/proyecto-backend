@@ -21,28 +21,24 @@ const logger = require("../logs/logger");
  * @param {JSON Object} res 
  */
 
- exports.get_articulos = utils.wrapAsync(async function (req, res, next) {
-     try {
-         await dbConn.conectar
-         console.log("Entra aquí");
-         await Articulo.get_articulos()
-             .then((articulo) => {
-                console.log("aqui tambien")
-                res.status(200).json(articulo), logger.access.info(utilsLogs.accesoCorrecto('articulo'))
+exports.get_articulo = utils.wrapAsync(async function (req, res, next) {
+    try {
+        await dbConn.conectar;
+        await Articulo.get_articulo()
+            .then((articulo) => res.status(200).json(articulo), logger.access.info(utilsLogs.accesoCorrecto("articulo")))
+            .catch((err) => {
+                logger.error.error(utilsLogs.errInterno(err));
+                throw new ErrInterno(utils.errInterno(err));
             })
-             .catch((err) => {
-                 logger.error.err(utilsLogs.errInterno(err))
-                 throw new ErrInterno(utils.errInterno(err))
-             })
-     } catch (err) {
-         if (!(err instanceof ErrInterno)) {
-             res.status(500).json(utils.baseDatosNoConectada())
-             throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
-         } else {
-             throw err
-         }
-     }
- })
+    } catch (err) {
+        if (!(err instanceof ErrInterno)) {
+            logger.error.error(utilsLogs.baseDatosNoConectada());
+            throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
+        } else {
+            throw err;
+        }
+    }
+})
 
 
 /**
