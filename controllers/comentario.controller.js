@@ -131,6 +131,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                     logger.warning.warn(utilsLogs.parametrosIncorrectos());
                 }
                 else {
+                    console.log("entra antes de dbconn");
                     await dbConn.conectar;
                     console.log("entra");
                     try {
