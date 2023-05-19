@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const articuloSchema = new mongoose.Schema({
-    id_articulo: {
-        type: Number,
-        required: true
-    },
     titulo: {
         type: String,
         required: true

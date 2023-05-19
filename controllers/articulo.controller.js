@@ -94,12 +94,11 @@ exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
  */
 exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
     let articulo = req.body;
-    console.log(articulo.id_articulo);
     console.log(articulo.titulo);
     console.log(articulo.cuerpo);
     console.log(articulo.id_usuario);
     console.log(articulo.imagen);
-    if (articulo.id_articulo && articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
+    if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
         try {
             await dbConn.conectar
             try {
