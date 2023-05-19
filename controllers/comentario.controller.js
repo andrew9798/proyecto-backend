@@ -126,6 +126,12 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
         try {
             // await Usuario.findById(ejercicio.id_usuario, async function (err, user) {
                 console.log("entra al try");
+                console.log(comentario.usuario);
+                console.log(comentario.id_usuario);
+                console.log(comentario.articulo);
+                console.log(comentario.titulo);
+                console.log(comentario.cuerpo);
+
 
                 // if (err) {
                 //     res.status(406).json(utils.parametrosIncorrectos());
