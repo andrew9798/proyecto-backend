@@ -121,11 +121,9 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
 
 exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
     let comentario = req.body;
-
-
     if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
         try {
-            await Usuario.findById(ejercicio.id_usuario, async function (err, user) {
+            // await Usuario.findById(ejercicio.id_usuario, async function (err, user) {
 
                 if (err) {
                     res.status(406).json(utils.parametrosIncorrectos());
@@ -150,7 +148,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                         logger.error.error(utilsLogs.baseDatosNoConectada());
                     }
                 }
-            })
+            // })
 
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
