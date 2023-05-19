@@ -25,8 +25,10 @@ const bcrypt = require("bcrypt");
 exports.get_usuarios = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar;
+        console.log("entra");
         await Usuario.get_usuarios()
             .them((usuarios) => {
+                console.log("entra en usuarios");
                 res.status(200).json(usuarios), logger.access.info(utilsLogs.accesoCorrecto("usuario"))
             })
             .catch((err) => {
