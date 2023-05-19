@@ -21,7 +21,7 @@ const logger = require("../logs/logger");
  * @param {JSON Object} res 
  */
 
-exports.get_articulo = utils.wrapAsync(async function (req, res, next) {
+exports.get_articulos = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar;
         await Articulo.get_articulo()

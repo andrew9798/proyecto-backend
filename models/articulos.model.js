@@ -31,7 +31,7 @@ const Articulo = mongoose.model("Articulo",articuloSchema);
 /**
  * Recoger de la base de datos todas los articulos sin ningún filtro
  */
-Articulo.get_articulo = async function () {
+Articulo.get_articulos = async function () {
     return Articulo.find();
 }
 
