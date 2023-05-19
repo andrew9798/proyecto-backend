@@ -6,8 +6,8 @@ const comentario = [
     {
 
         usuario: "Andres",
-        id_usuario: "64629c64621d603399944600",
-        id_articulo: 1,
+        id_usuario: "6467c116201942560a904b18",
+        id_articulo: "6467c22755d4e8e74d1e94d1",
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
@@ -15,8 +15,8 @@ const comentario = [
     {
 
         usuario: "Andres",
-        id_usuario: "64629c64621d603399944600",
-        id_articulo: 1,
+        id_usuario: "6467c116201942560a904b18",
+        id_articulo: "6467c22755d4e8e74d1e94cf",
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
@@ -24,15 +24,16 @@ const comentario = [
     {
 
         usuario: "Jose",
-        id_usuario: "64629c64621d603399944600",
-        id_articulo: 2,
+        id_usuario: "6467c116201942560a904b19",
+        id_articulo: "6467c22755d4e8e74d1e94cf",
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
     },    {
 
-        usuario: "Antonio",
-        id_articulo: 2,
+        usuario: "jose",
+        id_usuario: "6467c116201942560a904b19",
+        id_articulo: "6467c22755d4e8e74d1e94d0",
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
 
