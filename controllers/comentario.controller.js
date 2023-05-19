@@ -54,8 +54,9 @@ exports.get_comentario = utils.wrapAsync(async function (req, res, next) {
  */
 
 exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, next) {
-    let id_articulo = req.params.id_articulo;
+    let id_articulo = req.params.articulo;
     console.log(id_articulo);
+    console.log("entra");
     if (id_articulo) {
         try {
             await dbConn.conectar;
