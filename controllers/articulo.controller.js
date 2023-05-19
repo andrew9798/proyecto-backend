@@ -8,7 +8,6 @@ const BaseDatosNoConectadaError = require("../errors/BaseDatosNoConectadaError")
 const MissingDatosError = require("../errors/MissingDatosError");
 const ParametrosIncorrectosError = require("../errors/ParametrosIncorrectosError");
 const ErrInterno = require("../errors/ErrInterno");
-
 const logger = require("../logs/logger");
 
 
