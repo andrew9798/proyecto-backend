@@ -1,4 +1,5 @@
 const Articulo = require("../models/articulos.model");
+const Usuario = require("../models/usuario.model");
 const utils = require("./utils");
 const dbConn = require("../config/db.config.mongo");
 const utilsLogs = require("./utilsLogs");
@@ -25,7 +26,10 @@ const logger = require("../logs/logger");
          await dbConn.conectar
          console.log("Entra aquí");
          await Articulo.get_articulos()
-             .then((articulo) => res.status(200).json(articulo), logger.access.info(utilsLogs.accesoCorrecto('articulo')))
+             .then((articulo) => {
+                console.log("aqui tambien")
+                res.status(200).json(articulo), logger.access.info(utilsLogs.accesoCorrecto('articulo'))
+            })
              .catch((err) => {
                  logger.error.err(utilsLogs.errInterno(err))
                  throw new ErrInterno(utils.errInterno(err))
