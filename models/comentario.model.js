@@ -42,8 +42,8 @@ Comentario.get_comentario = async function() {
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
  */
 
-Comentario.get_comentario_by_id = async function(id) {
-    return Comentario.findById(id)
+Comentario.get_comentario_by_articulo = async function(articulo) {
+    return Comentario.findById({id_articulo: articulo})
 }
 
 /**
