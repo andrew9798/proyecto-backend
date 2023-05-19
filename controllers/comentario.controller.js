@@ -76,10 +76,12 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                                             logger.access.info(utilsLogs.accesoCorrecto(`Comentarios del articulo: ${id_articulo}`))
                                         })
                                         .catch((err) => {
+                                            console.log("tercero parametro")
                                             res.status(406).json(utils.parametrosIncorrectos());
                                             logger.warning.warn(utilsLogs.parametrosIncorrectos());
                                         });
                                 } catch (err) {
+                                    console.log("segundo parametro")
                                     res.status(406).json(utils.parametrosIncorrectos());
                                     logger.warning.warn(utilsLogs.parametrosIncorrectos());
                                 }
@@ -90,6 +92,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                         }
                     })
                     .catch((err) => {
+                        console.log("primer parametro")
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos())
                     })
