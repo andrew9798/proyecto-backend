@@ -138,13 +138,11 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                 //     logger.warning.warn(utilsLogs.parametrosIncorrectos());
                 // }
                 // else {
-                    console.log("entra antes de dbconn");
                     await dbConn.conectar;
-                    console.log("entra");
                     try {
                         await Comentario.add_comentario(comentario)
-                            .then((rest) => {
-                                rest.status(201).json(utils.creadoCorrectamente('ejercicio'));
+                            .then((result) => {
+                                res.status(201).json(utils.creadoCorrectamente('ejercicio'));
                                 logger.access.info(utilsLogs.creadoCorrectamente("ejercicio", ejercicio._id));
 
                             })
