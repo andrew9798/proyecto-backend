@@ -6,6 +6,7 @@ const comentario = [
     {
 
         usuario: "Andres",
+        id_usuario: "64629c64621d603399944600",
         id_articulo: 1,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
@@ -14,6 +15,7 @@ const comentario = [
     {
 
         usuario: "Andres",
+        id_usuario: "64629c64621d603399944600",
         id_articulo: 1,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "
@@ -22,6 +24,7 @@ const comentario = [
     {
 
         usuario: "Jose",
+        id_usuario: "64629c64621d603399944600",
         id_articulo: 2,
         titulo: "Buenas ilustraciones",
         cuerpo:"Estas ilustraciones son de calidad, hechas en diferentes tamaños "

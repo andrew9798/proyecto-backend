@@ -5,10 +5,6 @@ const comentarioSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    id_usuario: {
-        type: Number,
-        required: true
-    },
     id_articulo: {
         type: Number,
         required: true
