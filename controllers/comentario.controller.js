@@ -137,7 +137,6 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                 console.log(comentario.titulo);
                 console.log(comentario.cuerpo);
 
-
                 // if (err) {
                 //     res.status(406).json(utils.parametrosIncorrectos());
                 //     logger.warning.warn(utilsLogs.parametrosIncorrectos());
