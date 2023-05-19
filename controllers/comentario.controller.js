@@ -128,7 +128,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                 console.log("entra al try");
                 console.log(comentario.usuario);
                 console.log(comentario.id_usuario);
-                console.log(comentario.articulo);
+                console.log(comentario.id_articulo);
                 console.log(comentario.titulo);
                 console.log(comentario.cuerpo);
 
