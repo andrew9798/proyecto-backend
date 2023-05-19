@@ -24,7 +24,7 @@ const logger = require("../logs/logger");
 exports.get_articulos = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar;
-        await Articulo.get_articulo()
+        await Articulo.get_articulos()
             .then((articulo) => res.status(200).json(articulo), logger.access.info(utilsLogs.accesoCorrecto("articulo")))
             .catch((err) => {
                 logger.error.error(utilsLogs.errInterno(err));
