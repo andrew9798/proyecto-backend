@@ -127,11 +127,11 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
             // await Usuario.findById(ejercicio.id_usuario, async function (err, user) {
                 console.log("entra al try");
 
-                if (err) {
-                    res.status(406).json(utils.parametrosIncorrectos());
-                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
-                }
-                else {
+                // if (err) {
+                //     res.status(406).json(utils.parametrosIncorrectos());
+                //     logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                // }
+                // else {
                     console.log("entra antes de dbconn");
                     await dbConn.conectar;
                     console.log("entra");
@@ -151,7 +151,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                         res.status(500).json(utils.baseDatosNoConectada());
                         logger.error.error(utilsLogs.baseDatosNoConectada());
                     }
-                }
+                // }
             // })
 
         } catch (err) {
