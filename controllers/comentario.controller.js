@@ -120,6 +120,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
  */
 
 exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
+    console.log("ejecuta el add comentario")
     let comentario = req.body;
     if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
         try {
