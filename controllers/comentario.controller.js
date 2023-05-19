@@ -143,6 +143,7 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
 
                             })
                             .catch((err) => {
+                                console.log("entra a error 406");
                                 res.status(406).json(utils.parametrosIncorrectos())
                                 logger.warning.warn(utilsLogs.parametrosIncorrectos());
 
