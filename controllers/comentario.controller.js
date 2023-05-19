@@ -187,16 +187,16 @@ exports.edit_comentario = utils.wrapAsync(async function (req, res, next) {
 
     if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
         try {
-            await Usuario.findById(comentario.id_usuario, async function (err, user) {
-                if (err) {
-                    res.status(406).json(utils.parametrosIncorrectos());
-                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
+            // await Usuario.findById(comentario.id_usuario, async function (err, user) {
+            //     if (err) {
+            //         res.status(406).json(utils.parametrosIncorrectos());
+            //         logger.warning.warn(utilsLogs.parametrosIncorrectos());
 
-                } else {
+                //  } else {
                     try {
                         await dbConn.conectar;
                         try {
-                            await Usuario.edit_usuario(id, usuario)
+                            await Comentario.edit_comentario(id, comentario)
                                 .then((result) => {
                                     if (result.value === null) {
                                         res.status(404).json(utils.noExiste("ejercicio"));
@@ -222,8 +222,8 @@ exports.edit_comentario = utils.wrapAsync(async function (req, res, next) {
                         logger.error.error(utilsLogs.baseDatosNoConectada());
                     }
 
-                }
-            })
+                //}
+            // })
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
             logger.error.error(utilsLogs.baseDatosNoConectada());
