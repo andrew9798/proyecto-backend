@@ -25,12 +25,8 @@ const bcrypt = require("bcrypt");
 exports.get_usuarios = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar;
-        console.log("entra");
         await Usuario.get_usuarios()
-            .them((usuarios) => {
-                console.log("entra en usuarios");
-                res.status(200).json(usuarios), logger.access.info(utilsLogs.accesoCorrecto("usuario"))
-            })
+            .then((usuario) => res.status(200).json(usuario), logger.access.info(utilsLogs.accesoCorrecto("usuario")))
             .catch((err) => {
                 logger.error.error(utilsLogs.errInterno(err));
                 throw new ErrInterno(utils.errInterno(err));
@@ -39,8 +35,7 @@ exports.get_usuarios = utils.wrapAsync(async function (req, res, next) {
         if (!(err instanceof ErrInterno)) {
             logger.error.error(utilsLogs.baseDatosNoConectada());
             throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
-        }
-        else {
+        } else {
             throw err;
         }
     }
