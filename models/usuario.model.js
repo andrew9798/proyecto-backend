@@ -40,7 +40,7 @@ Usuario.get_usuarios = async function () {
  */
 
 Usuario.get_usuario_by_id = async function(id) {
-    return Usuario.findById(id)
+    return Usuario.findById({ _id: id })
 }
 
 /**
@@ -60,7 +60,7 @@ Usuario.add_usuario = async function(usuario) {
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
 Usuario.edit_usuario = async function(id, usuario) {
-    return Usuario.findByIdAndUpdate(id, usuario, {runValidators: true, new: true, rawResult: true})
+    return Usuario.findByIdAndUpdate({ _id: id }, usuario, {runValidators: true, new: true, rawResult: true})
 }
 
 /**

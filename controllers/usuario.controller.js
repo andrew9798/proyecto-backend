@@ -111,6 +111,48 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
         logger.error.err(utilsLogs.baseDatosNoConectada());
        
     }
+
+    /**
+ * Controlador para añadir un articulo definida en el body de la request en la base de datos
+ * Llama a la función del modelo articulo add_articulo.
+ * Si todo va bien, devolvera un código 201 y un mensaje indicandolo 
+ * Si alguno de los datos es incorrecto(no cumple con las restricciones de la base de datos) o no esta definido, devuelve un código 406 y un mensaje indicandolo
+ * Si la base de datos no está conectada, devuelve el código 500 y un mensaje avisando de ello
+ * @param {JSON Object} req 
+ * @param {JSON Object} res 
+ */
+exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
+    let articulo = req.body;
+    console.log(articulo.titulo);
+    console.log(articulo.cuerpo);
+    console.log(articulo.id_usuario);
+    console.log(articulo.imagen);
+    if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
+        try {
+            await dbConn.conectar
+            try {
+                await Articulo.add_articulo(articulo)
+                    .then((result) => {
+                        res.status(201).json(utils.creadoCorrectamente('articulo'))
+                        logger.access.info(utilsLogs.creadoCorrectamente("articulo", result._id))
+                    }).catch((err) => {
+                        res.status(406).json(utils.parametrosIncorrectos())
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                    })
+            } catch (err) {
+                res.status(406).json(utils.parametrosIncorrectos());
+                logger.warning.warn(utilsLogs.parametrosIncorrectos())
+            }
+        } catch (err) {
+            res.status(500).json(utils.baseDatosNoConectada());
+            logger.error.err(utilsLogs.baseDatosNoConectada());
+        }
+
+    } else {
+        logger.warning.warn(utilsLogs.faltanDatos("articulo"))
+        throw new MissingDatosError(utils.missingDatos())
+    }
+})
 }
 
 
