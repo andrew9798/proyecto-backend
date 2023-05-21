@@ -15,7 +15,7 @@ router.get("/", anyadirMorgan, comentarioController.get_comentario);
  * Llama a la función get_comentario_by_articulo de comentario.Controller
  * Ej de ruta: http://localhost:3000/api/v1/comentarios/articulo {id_usuario a través de JSON}
  */
-router.get("/:articulo", anyadirMorgan, comentarioController.get_comentario_by_articulo);
+router.post("/:articulo", anyadirMorgan, comentarioController.get_comentario_by_articulo);
 
 /**
  * Ruta para añadir un nuevo comentario
@@ -27,9 +27,16 @@ router.post("/",anyadirMorgan,comentarioController.add_comentario);
 /**
  * Ruta para modificar un comentario definido en JSON según id definido en la url (parámetro)
  * Llama a la función edit_ejercicio de ejercicio.Controller
- * Ej de ruta: http://localhost:3000/api/v1/ejercicio/1 {nombre, id_usuario y estado a través de JSON}
+ * Ej de ruta: http://localhost:3000/api/v1/comentarios/id
  */
 router.patch("/:id", anyadirMorgan, comentarioController.edit_comentario);
+
+/**
+ * Ruta para eliminar un articulo por id definido en la url (parámetro)
+ * Llama a la función delete_ejercicio_by_usuario de ejercicio.Controller
+ * Ej de ruta: http://localhost:3000/api/v1/comentarios/id {id_usuario a través de JSON}
+ */
+router.delete("/:id", anyadirMorgan, comentarioController.delete_comentario);
 
 /**
  * Ruta para eliminar todos los comentarios de un articulo según id definido en JSON

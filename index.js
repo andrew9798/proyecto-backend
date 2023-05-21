@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser")
 const session = require("express-session"); // npm i express-session
 const morgan = require("morgan") //npm i morgan
 const jwt = require("jsonwebtoken");
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3500
 const logger = require("./logs/logger");
 const https = require("https");
 const fs = require("fs");
@@ -26,7 +26,7 @@ const fs = require("fs");
 //         if (req.method == "POST") {
 //             next();
 //         } else {
-//             jwtMW.requireJWT(req, res, next);iiiiiiii
+//             jwtMW.requireJWT(req, res, next);
 //         }
 //     }
 // });
@@ -59,9 +59,9 @@ const version = "v1"
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use(`/api/${version}/articulo`, articulosRoutes);
+app.use(`/api/${version}/articulos`, articulosRoutes);
 app.use(`/api/${version}/usuarios`, usuarioRoutes);
-app.use(`/api/${version}/comentario`, comentarioRoutes);
+app.use(`/api/${version}/comentarios`, comentarioRoutes);
 
 //------------- COOKIES ---------------------------//
 
@@ -88,22 +88,40 @@ app.get("/cookieSession", (req, res) => {
 
 /*------------- Aplicación del Cors* -----------------*/
 
- const whitelist = ["http://127.0.0.1:5000", "http://127.0.0.1:5001", "http://127.0.0.1:5002", "http://127.0.0.1:5003", "http://127.0.0.1:5004"]
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (whitelist.indexOf(origin) !== -1) {
-            logger.access.info("Acceso a la aplicación desde " + origin);
-            callback(null, true);
-        } else {
-            logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
-            callback(null, false);
-        }
-    },
-    credentials: true
-}
+//  app.use((req, res, next) => {
+//      res.setHeader('Access-Control-Allow-Origin', '*');
+//      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//      next();
+//    });
 
-app.use(cors(corsOptions));
+//    app.options('*', (req, res) => {
+//      res.setHeader('Access-Control-Allow-Origin', '3000');
+//      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//      res.sendStatus(200);
+//    });
 
+  const whitelist = ["http://localhost:3000", "http://127.0.0.1:3002", "http://127.0.0.1:5000", "http://127.0.0.1:3500", "http://127.0.0.1:3001"]
+ const corsOptions = {
+     origin: (origin, callback) => {
+         if (whitelist.indexOf(origin) !== -1) {
+             logger.access.info("Acceso a la aplicación desde " + origin);
+             callback(null, true);
+         } else {
+             logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
+             callback(null, false);
+         }
+     },
+     credentials: true
+ }
+
+ app.use(cors(corsOptions));
+
+// const whitelist = ["http://localhost:3000", "http://127.0.0.1:3002", "http://127.0.0.1:5000", "http://127.0.0.1:3500", "http://127.0.0.1:3001"]
+// app.use(cors({
+//     origin: whitelist
+// }))
 //-------------- error 500 ---------------------------//
 
 app.use((err, req, res, next) => {

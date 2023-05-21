@@ -58,7 +58,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
     console.log(id_articulo);
     console.log("entra");
     if (id_articulo) {
-        try {
+        try {co
             await dbConn.conectar;
             try {
                 await Articulo.get_articulo_by_id(id_articulo)
@@ -70,7 +70,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                             try {
                                 await dbConn.conectar;
                                 try {
-                                    await Ejercicio.get_comentario_by_articulo(id_articulo)
+                                    await Comentario.get_comentario_by_articulo(id_articulo)
                                         .then((comentario) => {
                                             res.status(200).json(comentario)
                                             logger.access.info(utilsLogs.accesoCorrecto(`Comentarios del articulo: ${id_articulo}`))
@@ -236,6 +236,49 @@ exports.edit_comentario = utils.wrapAsync(async function (req, res, next) {
     } else {
         logger.warning.warn(utilsLogs.faltanDatosAcceso("editar una tarea"));
         throw new MissingDatosError(utils.missingDatos())
+    }
+
+})
+
+exports.delete_comentario = utils.wrapAsync(async function (req, res, next) {
+    let id = req.params.id;
+    console.log(id);
+    try {
+        await dbConn.conectar;
+        try {
+            await Comentario.delete_comentario(id)
+                .then((info) => {
+                    if (info === null) {
+                        logger.warning.warn(utilsLogs.noExiste("comentario"));
+                        throw new NoExisteError(utils.noExiste("comentario"));
+                    } else {
+                        res.status(200).json(utils.borradoCorrectamente("comentario"));
+                        logger.access.info(utilsLogs.borradoCorrectamente("comentario", info._id));
+                    }
+                })
+                .catch((err) => {
+                    if (!(err instanceof NoExisteError)) {
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                        throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+                    } else {
+                        throw err;
+                    }
+                });
+        } catch (err) {
+            if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+                logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+            } else {
+                throw err;
+            }
+        }
+    } catch (err) {
+        if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+            logger.error.error(utilsLogs.baseDatosNoConectada());
+            throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
+        } else {
+            throw err;
+        }
     }
 
 })

@@ -15,6 +15,6 @@ router.get("/", anyadirMorgan, usuarioController.get_usuarios);
  * Llama a la función get_usuario_by_id de usuario.Controller
  * Ej de ruta: http://localhost:3000/api/v1/ejercicio/usuario {id_usuario a través de JSON}
  */
-router.post("/usuario", anyadirMorgan, usuarioController.get_usuario_by_id);
+router.post("/:id", anyadirMorgan, usuarioController.get_usuario_by_id);
 
 module.exports = router

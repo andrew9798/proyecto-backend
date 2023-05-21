@@ -1,0 +1,61 @@
+[2023-05-20T13:58:28.765] [INFO] access - se ha accedido a articulo 
+[2023-05-20T13:59:30.269] [INFO] access - se ha accedido a articulo 
+[2023-05-20T14:01:31.727] [INFO] access - se ha accedido a articulo 
+[2023-05-20T14:10:26.567] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:10:26 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:26:37.738] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:26:37 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:26:55.804] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:26:55 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:27:17.306] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:27:17 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:35:16.993] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:35:17 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:35:17.686] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:35:17 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:53:33.060] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:53:33 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:54:15.024] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:54:15 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:56:49.885] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:56:49 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T14:56:54.687] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:12:56:54 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T15:05:44.471] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:13:05:44 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T15:39:20.792] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:13:39:20 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T15:40:04.666] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:13:40:04 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T15:40:11.396] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:13:40:11 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T15:51:22.892] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:13:51:22 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T15:58:47.925] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:13:58:47 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T16:37:57.209] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:14:37:57 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T16:47:50.725] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:14:47:50 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T16:47:58.237] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:14:47:58 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T16:56:14.731] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:14:56:14 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T16:59:34.745] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:14:59:34 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T17:01:06.182] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:15:01:06 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+[2023-05-20T17:02:53.212] [INFO] access - se ha accedido a articulo 
+::1 - - [20/May/2023:15:02:53 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:03:19 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:03:21 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:03:29 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:03:30 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:52:26 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:53:21 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:09:53:26 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:10:01:16 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:10:16:35 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:10:16:37 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:10:59:34 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+::1 - - [21/May/2023:11:05:21 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"

@@ -10,7 +10,7 @@ const comentarioSchema = new mongoose.Schema({
         required: true
     },
     id_articulo: {
-        type: Number,
+        type: String,
         required: true
     },
     titulo:{
@@ -80,12 +80,12 @@ Comentario.edit_comentario = async function(id,comentario) {
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
-Comentario.delete_Comentario = async function(id) {
-    return Comentario.findByIdAndDelete(id)
+Comentario.delete_comentario = async function(_id) {
+    return Comentario.findByIdAndDelete({ _id })
 }
 
 /**
- * Borrar todas los comentarios de un usuario definido por su id de la base de datos
+ * Borrar todas los comentarios de un articulo definido por su id de la base de datos
  * @param {Number} id
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
  */

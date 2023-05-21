@@ -37,7 +37,7 @@ Articulo.get_articulos = async function () {
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
  */
 Articulo.get_articulo_by_id = async function(id) {
-    return Articulo.findById(id)
+    return Articulo.findById({_id: id})
 } 
 
 /**
@@ -57,7 +57,7 @@ Articulo.add_articulo = async function(articulo) {
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
 Articulo.edit_Articulo = async function(id, articulo) {
-    return Articulo.findByIdAndUpdate(id, articulo, {runValidators: true, new: true, rawResult: true})
+    return Articulo.findByIdAndUpdate({ _id: id }, articulo, {runValidators: true, new: true, rawResult: true})
 }
 
 /**
@@ -65,8 +65,8 @@ Articulo.edit_Articulo = async function(id, articulo) {
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
-Articulo.delete_Articulo = async function(id) {
-    return Articulo.findByIdAndDelete(id)
+Articulo.delete_articulo = async function(id) {
+    return Articulo.findByIdAndDelete({ _id: id })
 }
 
 module.exports = Articulo;

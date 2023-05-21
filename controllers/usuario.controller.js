@@ -109,8 +109,54 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
     }catch{
         res.status(500).json((utils.baseDatosNoConectada())),
         logger.error.err(utilsLogs.baseDatosNoConectada());
+       
     }
 }
+
+
+
+exports.delete_usuario = utils.wrapAsync(async function (req, res, next) {
+    let id = req.params.id;
+    console.log(id);
+    try {
+        await dbConn.conectar;
+        try {
+            await Comentario.delete_usuario(id)
+                .then((info) => {
+                    if (info === null) {
+                        logger.warning.warn(utilsLogs.noExiste("usuario"));
+                        throw new NoExisteError(utils.noExiste("usuario"));
+                    } else {
+                        res.status(200).json(utils.borradoCorrectamente("usuario"));
+                        logger.access.info(utilsLogs.borradoCorrectamente("usuario", info._id));
+                    }
+                })
+                .catch((err) => {
+                    if (!(err instanceof NoExisteError)) {
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                        throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+                    } else {
+                        throw err;
+                    }
+                });
+        } catch (err) {
+            if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+                logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+            } else {
+                throw err;
+            }
+        }
+    } catch (err) {
+        if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+            logger.error.error(utilsLogs.baseDatosNoConectada());
+            throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
+        } else {
+            throw err;
+        }
+    }
+
+})
 
 
 
