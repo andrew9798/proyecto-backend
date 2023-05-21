@@ -54,7 +54,6 @@ exports.get_articulos = utils.wrapAsync(async function (req, res, next) {
  */
 exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
     let id = req.params.id;
-    console.log(id);
     try {
         await dbConn.conectar
         try {
@@ -94,10 +93,6 @@ exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
  */
 exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
     let articulo = req.body;
-    console.log(articulo.titulo);
-    console.log(articulo.cuerpo);
-    console.log(articulo.id_usuario);
-    console.log(articulo.imagen);
     if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
         try {
             await dbConn.conectar
@@ -138,8 +133,6 @@ exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
 exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
     let id = req.params.id;
     let articulo = req.body;
-    console.log(id);
-    console.log(articulo);
 
     if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
         try {
@@ -188,7 +181,6 @@ exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
  */
 exports.delete_articulo = utils.wrapAsync(async function (req, res, next) {
     let id = req.params.id;
-    console.log(id);
     try {
         await dbConn.conectar;
         try {
@@ -203,7 +195,6 @@ exports.delete_articulo = utils.wrapAsync(async function (req, res, next) {
                     }
                 })
                 .catch((err) => {
-                    console.log("2º datos incorrectos")
                     if (!(err instanceof NoExisteError)) {
                         logger.warning.warn(utilsLogs.parametrosIncorrectos());
                         throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
@@ -212,7 +203,6 @@ exports.delete_articulo = utils.wrapAsync(async function (req, res, next) {
                     }
                 });
         } catch (err) {
-            console.log("1º datos incorrectos")
             if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
                 logger.warning.warn(utilsLogs.parametrosIncorrectos());
                 throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())

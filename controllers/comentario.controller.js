@@ -55,8 +55,6 @@ exports.get_comentario = utils.wrapAsync(async function (req, res, next) {
 
 exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, next) {
     let id_articulo = req.params.articulo;
-    console.log(id_articulo);
-    console.log("entra");
     if (id_articulo) {
         try {co
             await dbConn.conectar;
@@ -93,7 +91,6 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                         console.log(articulo);
                     })
                     .catch((err) => {
-                        console.log("primer parametro")
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos())
                     })
@@ -116,7 +113,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
 
 /**
  * Controlador para guardar un comentario definida en el body de la request en la base de datos.
- * Llama a la fución del modelo Ejercicio add_ejercicio.
+ * Llama a la fución del modelo comentario add_comentario.
  * Si todo ha ido bien, devuelve código 201 y un mensaje indicándolo.
  * Si alguno de los datos es incorrecto (no coincide con las restricciones de la base de datos) o no está definido, devuelve código 406 y un mensaje avisando de ello.
  * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
@@ -125,23 +122,9 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
  */
 
 exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
-    console.log("ejecuta el add comentario")
     let comentario = req.body;
     if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
         try {
-            // await Usuario.findById(ejercicio.id_usuario, async function (err, user) {
-                console.log("entra al try");
-                console.log(comentario.usuario);
-                console.log(comentario.id_usuario);
-                console.log(comentario.id_articulo);
-                console.log(comentario.titulo);
-                console.log(comentario.cuerpo);
-
-                // if (err) {
-                //     res.status(406).json(utils.parametrosIncorrectos());
-                //     logger.warning.warn(utilsLogs.parametrosIncorrectos());
-                // }
-                // else {
                     await dbConn.conectar;
                     try {
                         await Comentario.add_comentario(comentario)
@@ -160,8 +143,6 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                         res.status(500).json(utils.baseDatosNoConectada());
                         logger.error.error(utilsLogs.baseDatosNoConectada());
                     }
-                // }
-            // })
 
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
@@ -174,8 +155,8 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
 })
 
 /**
- * Controlador para editar un ejercicio definida en el body de la request e identificada según id definido en los parámetros de la request.
- * Llama a la fución del modelo Ejercicio edit_ejercicio.
+ * Controlador para editar un comentario definida en el body de la request e identificada según id definido en los parámetros de la request.
+ * Llama a la fución del modelo comentario edit_comentario.
  * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
  * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
  * Si alguno de los datos es incorrecto (no coincide con las restricciones de la base de datos) o no está definido, devuelve código 406 y un mensaje avisando de ello.
@@ -191,23 +172,17 @@ exports.edit_comentario = utils.wrapAsync(async function (req, res, next) {
 
     if (comentario.usuario && comentario.id_usuario && comentario.id_articulo && comentario.titulo && comentario.cuerpo) {
         try {
-            // await Usuario.findById(comentario.id_usuario, async function (err, user) {
-            //     if (err) {
-            //         res.status(406).json(utils.parametrosIncorrectos());
-            //         logger.warning.warn(utilsLogs.parametrosIncorrectos());
-
-                //  } else {
                     try {
                         await dbConn.conectar;
                         try {
                             await Comentario.edit_comentario(id, comentario)
                                 .then((result) => {
                                     if (result.value === null) {
-                                        res.status(404).json(utils.noExiste("ejercicio"));
-                                        logger.warning.warn(utilsLogs.noExiste("ejercicio"));
+                                        res.status(404).json(utils.noExiste("comentario"));
+                                        logger.warning.warn(utilsLogs.noExiste("comentario"));
                                     } else {
-                                        res.status(200).json(utils.editadoCorrectamente("ejercicio"));
-                                        logger.access.info(utilsLogs.actualizadoCorrectamente("ejercicio", result.value._id));
+                                        res.status(200).json(utils.editadoCorrectamente("comentario"));
+                                        logger.access.info(utilsLogs.actualizadoCorrectamente("comentario", result.value._id));
 
                                     }
                                 })
@@ -226,15 +201,13 @@ exports.edit_comentario = utils.wrapAsync(async function (req, res, next) {
                         logger.error.error(utilsLogs.baseDatosNoConectada());
                     }
 
-                //}
-            // })
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
             logger.error.error(utilsLogs.baseDatosNoConectada());
 
         }
     } else {
-        logger.warning.warn(utilsLogs.faltanDatosAcceso("editar una tarea"));
+        logger.warning.warn(utilsLogs.faltanDatosAcceso("editar una comentario"));
         throw new MissingDatosError(utils.missingDatos())
     }
 
@@ -285,8 +258,8 @@ exports.delete_comentario = utils.wrapAsync(async function (req, res, next) {
 
 
 /**
- * Controlador para eliminar un ejercicio identificada según id definido en los parámetros de la request.
- * Llama a la fución del modelo Ejercicio delete_ejercicio.
+ * Controlador para eliminar un comentario identificada según id definido en los parámetros de la request.
+ * Llama a la fución del modelo comentario delete_comentario.
  * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
  * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
  * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devuelve código 406 y un mensaje avisando de ello.

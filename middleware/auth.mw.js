@@ -3,8 +3,8 @@ let ID_USER=2
 let ID_GUESS=3
 
 
-const RUTA_SOLO_ADMINS = "/api/v1/tareas"
-const RUTAS_PERMITIDAS_GUESS = ["/api/v1/tareas/usuario/estado", "/api/v1/tareas"]
+const RUTA_SOLO_ADMINS = ""
+const RUTAS_PERMITIDAS_GUESS = ["/api/v1/articulos"]
 
 //Middleware de autorización
 const authorization = async (req, res, next) => {
@@ -36,41 +36,3 @@ const authorization = async (req, res, next) => {
 
 
 module.exports = authorization;
-
-
-/*Funciones para asignar las variables el id correcto
-async function asignarADMIN() {
-    //console.log("asdasd");
-     return Perfil.findADM( async function (err, result) {
-        //console.log(result);
-        //console.log(err);
-        console.log("MW para admin: "+ result);
-        if (err) {
-            console.log("me he metido en el if");
-            return  null
-        } else {
-            console.log("me he metido en el else");
-            return  result
-        }
-    });
-   
-}
-
-
-Perfil.findUser( function (err, result) {
-    console.log("MW para usarios: "+result[0].id);
-    if (err) {
-        ID_USER = null
-    } else {
-        ID_USER = result[0].id
-    }
-});
- Perfil.findGUESS( function (err, result) {
-    console.log("MW para invitados: "+result[0].id);
-    if (err) {
-        ID_GUESS = null
-    } else {
-        ID_GUESS = result[0].id
-    }
-});
-*/

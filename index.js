@@ -11,43 +11,6 @@ const logger = require("./logs/logger");
 const https = require("https");
 const fs = require("fs");
 
-//------------ validación y autorización ------------//
-
-// const jwtMW = require("./middleware/jwt.mw");
-// const authorization = require("./middleware/auth.mw");
-
-// app.use((req, res, next) => {
-//     if (
-//         (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
-//         ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
-//     ) {
-//         jwtMW.requireJWT(req, res, next)
-//     } else {
-//         if (req.method == "POST") {
-//             next();
-//         } else {
-//             jwtMW.requireJWT(req, res, next);
-//         }
-//     }
-// });
-
-// app.use((req, res, next) => {
-
-//     if (
-//         (req.url != "/api/v1/usuarios/autenticar" && req.url != "/api/v1/usuarios/autenticar/") &&
-//         ((req.url != "/api/v1/usuarios" && req.url != "/api/v1/usuarios/"))
-//     ) {
-//         authorization(req, res, next);
-
-//     } else {
-//         if (req.method == "POST") {
-//             next();
-//         } else {
-//             authorization(req, res, next);
-//         }
-//     }
-// });
-
 
 const articulosRoutes = require("./routers/articulos.rooter");
 const comentarioRoutes = require("./routers/comentario.routes");
@@ -88,19 +51,6 @@ app.get("/cookieSession", (req, res) => {
 
 /*------------- Aplicación del Cors* -----------------*/
 
-//  app.use((req, res, next) => {
-//      res.setHeader('Access-Control-Allow-Origin', '*');
-//      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//      next();
-//    });
-
-//    app.options('*', (req, res) => {
-//      res.setHeader('Access-Control-Allow-Origin', '3000');
-//      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//      res.sendStatus(200);
-//    });
 
   const whitelist = ["http://localhost:3000", "http://127.0.0.1:3002", "http://127.0.0.1:5000", "http://127.0.0.1:3500", "http://127.0.0.1:3001"]
  const corsOptions = {
@@ -118,10 +68,6 @@ app.get("/cookieSession", (req, res) => {
 
  app.use(cors(corsOptions));
 
-// const whitelist = ["http://localhost:3000", "http://127.0.0.1:3002", "http://127.0.0.1:5000", "http://127.0.0.1:3500", "http://127.0.0.1:3001"]
-// app.use(cors({
-//     origin: whitelist
-// }))
 //-------------- error 500 ---------------------------//
 
 app.use((err, req, res, next) => {
@@ -137,15 +83,11 @@ const httpsOptions = {
     key: fs.readFileSync("certificadosSSL/mi_certificado.key")
 }
 
-// createServer requiere dos parámetros: un objeto (con los certificados) y express
-// https.createServer(httpsOptions, app).listen(port, () => {
-//     console.log("Servidor HTTPS escuchando en puerto " + port);
-// });
+ https.createServer(httpsOptions, app).listen(port, () => {
+     console.log("Servidor HTTPS escuchando en puerto " + port);
+ });
 
 
- app.listen(port, () => {
-     console.log(`escuchando en puerto ${port}`);
- })
 
 
 
