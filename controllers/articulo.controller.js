@@ -57,7 +57,6 @@ exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
     try {
         await dbConn.conectar
         try {
-
             await Articulo.get_articulo_by_id(id)
                 .then((articulo) => {
                     if (articulo === null) {
