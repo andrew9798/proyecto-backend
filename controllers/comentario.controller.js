@@ -87,7 +87,6 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                                 logger.error.error(utilsLogs.baseDatosNoConectada());
                             }
                         }
-                        console.log(articulo);
                     })
                     .catch((err) => {
                         res.status(406).json(utils.parametrosIncorrectos())

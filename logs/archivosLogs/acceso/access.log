@@ -15,3 +15,21 @@
 ::1 - - [26/Oct/2023:08:01:28 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2dc HTTP/1.1" 406 45 "-" "PostmanRuntime/7.34.0"
 [2023-10-26T10:09:04.435] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2dc 
 ::1 - - [26/Oct/2023:08:09:04 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2dc HTTP/1.1" 200 505 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:24:27.096] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2dc 
+::1 - - [26/Oct/2023:08:24:27 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2dc HTTP/1.1" 200 505 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:24:28.126] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2dc 
+::1 - - [26/Oct/2023:08:24:28 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2dc HTTP/1.1" 200 505 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:25:05.369] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2dd 
+::1 - - [26/Oct/2023:08:25:05 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2dd HTTP/1.1" 200 254 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:25:25.005] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2de 
+::1 - - [26/Oct/2023:08:25:25 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2de HTTP/1.1" 200 252 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:26:04.320] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2de 
+::1 - - [26/Oct/2023:08:26:04 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2de HTTP/1.1" 200 252 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:26:19.628] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2de 
+::1 - - [26/Oct/2023:08:26:19 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2de HTTP/1.1" 200 252 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:26:40.424] [INFO] access - se ha accedido a Comentarios del articulo: 651d43f3723abce7a84eb2de 
+::1 - - [26/Oct/2023:08:26:40 +0000] "GET /api/v1/comentarios/651d43f3723abce7a84eb2de HTTP/1.1" 200 252 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:28:42.332] [INFO] access - se ha accedido a usuario 
+::1 - - [26/Oct/2023:08:28:42 +0000] "GET /api/v1/usuarios HTTP/1.1" 200 400 "-" "PostmanRuntime/7.34.0"
+[2023-10-26T10:29:25.538] [INFO] access - se ha accedido a usuario 
+::1 - - [26/Oct/2023:08:29:25 +0000] "GET /api/v1/usuarios/651d4433189d6bda87bd12b3 HTTP/1.1" 200 133 "-" "PostmanRuntime/7.34.0"
