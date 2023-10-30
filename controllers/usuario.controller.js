@@ -92,6 +92,7 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
         logger.error.err(utilsLogs.baseDatosNoConectada());
        
     }
+}
 
     /**
  * Controlador para añadir un usuario definida en el body de la request en la base de datos
@@ -104,7 +105,8 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
  */
 exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
     let usuario = req.body;
-    if (usuario.titulo && usuario.correo && usuario.contrasenya && usuario.id_profile) {
+    console.log(usuario);
+    if (usuario.usuario && usuario.correo && usuario.contrasenya && usuario.id_profile) {
         try {
             await dbConn.conectar
             try {
@@ -115,10 +117,12 @@ exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
                     }).catch((err) => {
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                        console.log("error dos")
                     })
             } catch (err) {
                 res.status(406).json(utils.parametrosIncorrectos());
                 logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                console.log("error uno")
             }
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
@@ -126,11 +130,11 @@ exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
         }
 
     } else {
-        logger.warning.warn(utilsLogs.faltanDatos("articulo"))
+        logger.warning.warn(utilsLogs.faltanDatos("usuario"))
         throw new MissingDatosError(utils.missingDatos())
     }
 })
-}
+
 
 
 /**

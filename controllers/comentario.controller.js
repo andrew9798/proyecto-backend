@@ -56,7 +56,7 @@ exports.get_comentario = utils.wrapAsync(async function (req, res, next) {
 exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, next) {
     let id_articulo = req.params.articulo;
     if (id_articulo) {
-        try {co
+        try {
             await dbConn.conectar;
             try {
                 await Articulo.get_articulo_by_id(id_articulo)
@@ -74,12 +74,11 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                                             logger.access.info(utilsLogs.accesoCorrecto(`Comentarios del articulo: ${id_articulo}`))
                                         })
                                         .catch((err) => {
-                                            console.log("tercero parametro")
+                                            console.log("tercer parametro")
                                             res.status(406).json(utils.parametrosIncorrectos());
                                             logger.warning.warn(utilsLogs.parametrosIncorrectos());
                                         });
                                 } catch (err) {
-                                    console.log("segundo parametro")
                                     res.status(406).json(utils.parametrosIncorrectos());
                                     logger.warning.warn(utilsLogs.parametrosIncorrectos());
                                 }
@@ -88,11 +87,11 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
                                 logger.error.error(utilsLogs.baseDatosNoConectada());
                             }
                         }
-                        console.log(articulo);
                     })
                     .catch((err) => {
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                        console.log("entra en error 406");
                     })
             } catch (err) {
                 res.status(500).json(utils.baseDatosNoConectada());
@@ -100,6 +99,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
             }
 
         } catch (err) {
+            console.log("entra en error 500");
             res.status(500).json(utils.baseDatosNoConectada());
             logger.error.error(utilsLogs.baseDatosNoConectada());
         }
@@ -129,8 +129,8 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                     try {
                         await Comentario.add_comentario(comentario)
                             .then((result) => {
-                                res.status(201).json(utils.creadoCorrectamente('ejercicio'));
-                                logger.access.info(utilsLogs.creadoCorrectamente("ejercicio", ejercicio._id));
+                                res.status(201).json(utils.creadoCorrectamente('comentario'));
+                                logger.access.info(utilsLogs.creadoCorrectamente("comentario", ejercicio._id));
 
                             })
                             .catch((err) => {
