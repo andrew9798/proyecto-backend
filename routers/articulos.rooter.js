@@ -1,7 +1,6 @@
 const articulosController = require("../controllers/articulo.controller");
 const express = require("express");
 const router = express.Router();
-var cors = require("cors");
 const anyadirMorgan = require("../middleware/morgan.mw");
 
 /**

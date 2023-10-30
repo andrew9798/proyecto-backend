@@ -80,7 +80,6 @@ exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
     }
 });
 
-
 /**
  * Controlador para añadir un articulo definida en el body de la request en la base de datos
  * Llama a la función del modelo articulo add_articulo.
@@ -97,22 +96,23 @@ exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
             await dbConn.conectar
             try {
                 await Articulo.add_articulo(articulo)
-                    .then((result) => {
+                    .then((articulo) => {
                         res.status(201).json(utils.creadoCorrectamente('articulo'))
-                        logger.access.info(utilsLogs.creadoCorrectamente("articulo", result._id))
+                        logger.access.info(utilsLogs.creadoCorrectamente("articulo", articulo._id))
                     }).catch((err) => {
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                        console.log("El error está dentro de la función Articulo.add_articulo")
                     })
             } catch (err) {
                 res.status(406).json(utils.parametrosIncorrectos());
                 logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                console.log("El error es de conexión")
             }
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
             logger.error.err(utilsLogs.baseDatosNoConectada());
         }
-
     } else {
         logger.warning.warn(utilsLogs.faltanDatos("articulo"))
         throw new MissingDatosError(utils.missingDatos())
@@ -133,6 +133,9 @@ exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
     let id = req.params.id;
     let articulo = req.body;
 
+    console.log(id)
+    console.log(articulo)
+
     if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
         try {
             await dbConn.conectar;
@@ -151,10 +154,12 @@ exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
                     }).catch((err) => {
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                        console.log("error 2")
                     })
             } catch (err) {
                 res.status(406).json(utils.parametrosIncorrectos());
                 logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                console.log("error 1")
             }
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());

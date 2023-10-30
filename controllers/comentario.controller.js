@@ -129,8 +129,8 @@ exports.add_comentario = utils.wrapAsync(async function (req, res, next) {
                     try {
                         await Comentario.add_comentario(comentario)
                             .then((result) => {
-                                res.status(201).json(utils.creadoCorrectamente('ejercicio'));
-                                logger.access.info(utilsLogs.creadoCorrectamente("ejercicio", ejercicio._id));
+                                res.status(201).json(utils.creadoCorrectamente('comentario'));
+                                logger.access.info(utilsLogs.creadoCorrectamente("comentario", ejercicio._id));
 
                             })
                             .catch((err) => {
