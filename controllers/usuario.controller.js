@@ -136,6 +136,7 @@ exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
 })
 
 
+
 /**
  * Controlador para eliminar un usuario identificada según id definido en los parámetros de la request.
  * Llama a la fución del modelo usuario delete_usuario.
