@@ -99,7 +99,7 @@ Comentario.delete_comentario_by_usuario = async function(id) {
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
  */
 Comentario.delete_comentario_by_articulo = async function(id) {
-    return Comentario.deleteMany({ id_usuario: id })
+    return Comentario.deleteMany({ id_articulo: id })
 }
 
 module.exports = Comentario;
