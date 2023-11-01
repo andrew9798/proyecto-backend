@@ -58,7 +58,7 @@ exports.get_comentario_by_articulo = utils.wrapAsync(async function (req, res, n
     if (id_articulo) {
         try {
             await dbConn.conectar;
-            try {
+            try { 
                 await Articulo.get_articulo_by_id(id_articulo)
                     .then(async (articulo) => {
                         if (articulo === null) {
@@ -257,59 +257,128 @@ exports.delete_comentario = utils.wrapAsync(async function (req, res, next) {
 })
 
 
+// /**
+//  * Controlador para eliminar un comentario identificada según id definido en los parámetros de la request.
+//  * Llama a la fución del modelo comentario delete_comentario.
+//  * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
+//  * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
+//  * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devuelve código 406 y un mensaje avisando de ello.
+//  * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
+//  * @param {JSON Object} req 
+//  * @param {JSON Object} res 
+//  */
+
+// exports.delete_comentario_by_articulo = utils.wrapAsync(async function (req, res) {
+//     let id = req.params.id;
+
+//     try {
+//         await dbConn.conectar;
+//         try {
+//             await Comentario.delete_comentario(id)
+//                 .then((del) => {
+//                     if (del === null) {
+//                         logger.warning.warn(utilsLogs.noExiste("Comentario"));
+//                         throw new NoExisteError(utils.noExiste("Comentario"));
+//                     } else {
+//                         res.status(200).json(utils.borradoCorrectamente("Comentario"));
+//                         logger.access.info(utilsLogs.borradoCorrectamente("comentario", del._id))
+//                     }
+//                 })
+//                 .catch((err) => {
+//                     if (!(err instanceof NoExisteError)) {
+//                         logger.warning.warn(utilsLogs.parametrosIncorrectos());
+//                         throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+//                     } else {
+//                         throw err;
+//                     }
+//                 });
+//         } catch (err) {
+//             if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+//                 logger.warning.warn(utilsLogs.parametrosIncorrectos());
+//                 throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+//             } else {
+//                 throw err;
+//             }
+//         }
+//     } catch (err) {
+//         if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+//             logger.error.error(utilsLogs.baseDatosNoConectada());
+//             throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
+//         } else {
+//             throw err;
+//         }
+//     }
+
+// })
+
 /**
- * Controlador para eliminar un comentario identificada según id definido en los parámetros de la request.
- * Llama a la fución del modelo comentario delete_comentario.
- * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
- * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
+ * Controlador para eliminar un comentario por id definido en la request. 
+ * Llama a la fución del modelo Comentario delete_comentario_by_articulo.
+ * Si el comentario con ese id no existe, devuelve código 404 y un mensaje avisando de ello.
+ * Si todo ha ido bien, devuelve código 200 y el objeto respuesta de la consulta a la base de datos.
  * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devuelve código 406 y un mensaje avisando de ello.
- * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
+ * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello.
  * @param {JSON Object} req 
  * @param {JSON Object} res 
  */
 
-exports.delete_comentario_by_articulo = utils.wrapAsync(async function (req, res) {
-    let id = req.params.id;
-
-    try {
-        await dbConn.conectar;
+exports.delete_comentario_by_articulo = utils.wrapAsync(async function (req, res, next) {
+    let id_articulo = req.params.articulo;
+    if (id_articulo) {
         try {
-            await Comentario.delete_comentario(id)
-                .then((del) => {
-                    if (del === null) {
-                        logger.warning.warn(utilsLogs.noExiste("Comentario"));
-                        throw new NoExisteError(utils.noExiste("Comentario"));
-                    } else {
-                        res.status(200).json(utils.borradoCorrectamente("Comentario"));
-                        logger.access.info(utilsLogs.borradoCorrectamente("comentario", del._id))
-                    }
-                })
-                .catch((err) => {
-                    if (!(err instanceof NoExisteError)) {
-                        logger.warning.warn(utilsLogs.parametrosIncorrectos());
-                        throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
-                    } else {
-                        throw err;
-                    }
-                });
-        } catch (err) {
-            if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
-                logger.warning.warn(utilsLogs.parametrosIncorrectos());
-                throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
-            } else {
-                throw err;
+            await dbConn.conectar;
+            try {
+                await Articulo.delete_comentario_by_articulo(id_articulo)
+                    .then(async (articulo) => {
+                        if (articulo === null) {
+                            res.status(404).json(utils.noExiste("articulo"));
+                            logger.warning.warn(utilsLogs.noExiste("articulo"))
+                        } else {
+                            try {
+                                await dbConn.conectar;
+                                try {
+                                    await Comentario.delete_comentario_by_articulo(id_articulo)
+                                        .then((comentario) => {
+                                            res.status(200).json(utils.borradoCorrectamente("Comentario"));
+                                            logger.access.info(utilsLogs.borradoCorrectamente("comentario", id_articulo))})
+                                        .catch((err) => {
+                                            console.log("tercer parametro")
+                                            res.status(406).json(utils.parametrosIncorrectos());
+                                            logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                                        });
+                                } catch (err) {
+                                    res.status(406).json(utils.parametrosIncorrectos());
+                                    logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                                }
+                            } catch (err) {
+                                res.status(500).json(utils.baseDatosNoConectada());
+                                logger.error.error(utilsLogs.baseDatosNoConectada());
+                            }
+                        }
+                    })
+                    .catch((err) => {
+                        res.status(406).json(utils.parametrosIncorrectos())
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                        console.log("entra en error 406");
+                    })
+            } catch (err) {
+                res.status(500).json(utils.baseDatosNoConectada());
+                logger.error.error(utilsLogs.baseDatosNoConectada());
             }
-        }
-    } catch (err) {
-        if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+
+        } catch (err) {
+            console.log("entra en error 500");
+            res.status(500).json(utils.baseDatosNoConectada());
             logger.error.error(utilsLogs.baseDatosNoConectada());
-            throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
-        } else {
-            throw err;
         }
+    } else {
+        logger.warning.warn(utilsLogs.faltanDatosAcceso("comentario por articulo"));
+        throw new MissingDatosError(utils.missingDatos());
     }
 
 })
+
+
 
 
 
