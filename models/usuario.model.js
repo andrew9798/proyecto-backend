@@ -43,6 +43,10 @@ Usuario.get_usuario_by_id = async function(id) {
     return Usuario.findById({ _id: id })
 }
 
+Usuario.get_usuario_by_correo_and_password = async function(){
+    //Terminar Función
+}
+
 /**
  * Guardar un nuevo articulo en la base de datos
  * @param {JSON Object} usuario 

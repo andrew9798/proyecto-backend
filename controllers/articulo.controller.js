@@ -53,7 +53,7 @@ exports.get_articulos = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
-    let id = req.params.id;
+    const id = req.params.id;
     try {
         await dbConn.conectar
         try {
@@ -92,7 +92,7 @@ exports.get_articulo_by_id = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
-    let articulo = req.body;
+    const articulo = req.body;
     if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
         try {
             await dbConn.conectar
@@ -131,8 +131,8 @@ exports.add_articulo = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
-    let id = req.params.id;
-    let articulo = req.body;
+    const id = req.params.id;
+    const articulo = req.body;
 
     if (articulo.titulo && articulo.cuerpo && articulo.id_usuario && articulo.imagen) {
         try {
@@ -180,7 +180,7 @@ exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 exports.delete_articulo = utils.wrapAsync(async function (req, res, next) {
-    let id = req.params.id;
+    const id = req.params.id;
     try {
         await dbConn.conectar;
         try {

@@ -47,7 +47,7 @@ exports.get_usuarios = utils.wrapAsync(async function (req, res, next) {
  * Devuelve la respuesta en JSON para poder manejarlo 
  */
 exports.get_usuario_by_id = utils.wrapAsync(async function (req, res, next) {
-    let id = req.params.id;
+    const id = req.params.id;
     try {
         await dbConn.conectar
         try {
@@ -103,7 +103,7 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
  * @param {JSON Object} res 
  */
 exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
-    let usuario = req.body;
+    const usuario = req.body;
     if (usuario.titulo && usuario.correo && usuario.contrasenya && usuario.id_profile) {
         try {
             await dbConn.conectar

@@ -32,7 +32,7 @@ const Comentario = mongoose.model("Comentario",comentarioSchema);
 /**
  * Recoger de la base de datos todos los comentarios.
  */
-Comentario.get_comentario = async function() {
+Comentario.get_comentarios = async function() {
     return Comentario.find();
 }
 
