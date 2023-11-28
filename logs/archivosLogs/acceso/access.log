@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2023-11-16T19:44:00.929] [INFO] access - se ha accedido a articulo 
 [2023-11-16T19:44:37.137] [INFO] access - se ha accedido a articulo 
 [2023-11-16T19:49:37.303] [INFO] access - se ha accedido a articulo 
@@ -46,3 +47,12 @@
 ::1 - - [16/Nov/2023:19:27:08 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
 [2023-11-16T20:28:48.751] [INFO] access - se ha accedido a articulo 
 ::1 - - [16/Nov/2023:19:28:48 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
+=======
+[2023-10-30T12:17:37.298] [INFO] access - se ha accedido a comentario 
+[2023-10-30T12:18:28.663] [INFO] access - Se ha modificado comentario con el id 651d4421fa074cbbeb4932ac
+[2023-10-30T13:07:30.793] [INFO] access - se ha accedido a articulo 
+[2023-10-30T13:07:52.780] [INFO] access - Se ha eliminado un elemento articulo con el id 653a277b686ca9a49e062928
+[2023-10-30T13:14:37.323] [INFO] access - se ha accedido a comentario 
+[2023-10-30T13:14:52.197] [INFO] access - Se ha eliminado un elemento comentario con el id 653a2929e9572f522bab94ad
+[2023-10-30T13:15:31.296] [INFO] access - se ha accedido a usuario 
+>>>>>>> c53a03c4e739a60b48c68eb8b7b8964eb6cea00c

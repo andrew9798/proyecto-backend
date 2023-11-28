@@ -34,7 +34,7 @@ Usuario.get_usuarios = async function () {
 }
 
 /**
- * Recoger de la base de datos un comentario por id.
+ * Recoger de la base de datos un usuario por id.
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
  */
@@ -42,6 +42,13 @@ Usuario.get_usuarios = async function () {
 Usuario.get_usuario_by_id = async function(id) {
     return Usuario.findById({ _id: id })
 }
+
+/**
+ * Recoger de la base de datos un comentario por correo y password.
+ * @param {String} correo 
+ * @param {String} password
+ * @returns la Promesa resultante de hacer la consulta a la base de datos.
+ */
 
 Usuario.get_usuario_by_correo_and_password = async function(){
     //Terminar Función

@@ -37,13 +37,13 @@ Comentario.get_comentarios = async function() {
 }
 
 /**
- * Recoger de la base de datos un comentario por id.
+ * Recoger de la base de datos los comentarios que hay dentro de un articulo definido por id del articulo.
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
  */
 
 Comentario.get_comentario_by_articulo = async function(id) {
-    return Comentario.findById({})
+    return Comentario.find({ id_articulo: id })
 }
 
 /**
@@ -91,6 +91,15 @@ Comentario.delete_comentario = async function(_id) {
  */
 Comentario.delete_comentario_by_usuario = async function(id) {
     return Comentario.deleteMany({ id_usuario: id })
+}
+
+/**
+ * Borrar todas los comentarios de un articulo definido por su id de la base de datos
+ * @param {Number} id
+ * @returns la Promesa resultante de hacer la consulta a la base de datos.
+ */
+Comentario.delete_comentario_by_articulo = async function(id) {
+    return Comentario.deleteMany({ id_articulo: id })
 }
 
 module.exports = Comentario;

@@ -280,11 +280,65 @@ exports.delete_comentario = utils.wrapAsync(async function (req, res, next) {
   }
 });
 
+// /**
+//  * Controlador para eliminar un comentario identificada según id definido en los parámetros de la request.
+//  * Llama a la fución del modelo comentario delete_comentario.
+//  * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
+//  * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
+//  * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devuelve código 406 y un mensaje avisando de ello.
+//  * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
+//  * @param {JSON Object} req 
+//  * @param {JSON Object} res 
+//  */
+
+// exports.delete_comentario_by_articulo = utils.wrapAsync(async function (req, res) {
+//     let id = req.params.id;
+
+//     try {
+//         await dbConn.conectar;
+//         try {
+//             await Comentario.delete_comentario(id)
+//                 .then((del) => {
+//                     if (del === null) {
+//                         logger.warning.warn(utilsLogs.noExiste("Comentario"));
+//                         throw new NoExisteError(utils.noExiste("Comentario"));
+//                     } else {
+//                         res.status(200).json(utils.borradoCorrectamente("Comentario"));
+//                         logger.access.info(utilsLogs.borradoCorrectamente("comentario", del._id))
+//                     }
+//                 })
+//                 .catch((err) => {
+//                     if (!(err instanceof NoExisteError)) {
+//                         logger.warning.warn(utilsLogs.parametrosIncorrectos());
+//                         throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+//                     } else {
+//                         throw err;
+//                     }
+//                 });
+//         } catch (err) {
+//             if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+//                 logger.warning.warn(utilsLogs.parametrosIncorrectos());
+//                 throw new ParametrosIncorrectosError(utils.parametrosIncorrectos())
+//             } else {
+//                 throw err;
+//             }
+//         }
+//     } catch (err) {
+//         if (!((err instanceof NoExisteError) || (err instanceof ParametrosIncorrectosError))) {
+//             logger.error.error(utilsLogs.baseDatosNoConectada());
+//             throw new BaseDatosNoConectadaError(utils.baseDatosNoConectada())
+//         } else {
+//             throw err;
+//         }
+//     }
+
+// })
+
 /**
- * Controlador para eliminar un comentario identificada según id definido en los parámetros de la request.
- * Llama a la fución del modelo comentario delete_comentario.
- * Si la tarea con ese id no existe, devuelve código 404 y un mensaje indicándolo.
- * Si todo ha ido bien, devuelve código 200 y un mensaje indicándolo.
+ * Controlador para eliminar un comentario por id definido en la request. 
+ * Llama a la fución del modelo Comentario delete_comentario_by_articulo.
+ * Si el comentario con ese id no existe, devuelve código 404 y un mensaje avisando de ello.
+ * Si todo ha ido bien, devuelve código 200 y el objeto respuesta de la consulta a la base de datos.
  * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devuelve código 406 y un mensaje avisando de ello.
  * Si la base de datos no está conectada, devuelve código 500 y un mensaje avisando de ello
  * @param {JSON Object} req

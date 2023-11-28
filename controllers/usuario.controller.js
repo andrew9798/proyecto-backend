@@ -92,6 +92,7 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
         logger.error.err(utilsLogs.baseDatosNoConectada());
        
     }
+}
 
     /**
  * Controlador para añadir un usuario definida en el body de la request en la base de datos
@@ -115,10 +116,12 @@ exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
                     }).catch((err) => {
                         res.status(406).json(utils.parametrosIncorrectos())
                         logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                        console.log("error dos")
                     })
             } catch (err) {
                 res.status(406).json(utils.parametrosIncorrectos());
                 logger.warning.warn(utilsLogs.parametrosIncorrectos())
+                console.log("error uno")
             }
         } catch (err) {
             res.status(500).json(utils.baseDatosNoConectada());
@@ -126,11 +129,66 @@ exports.add_usuario = utils.wrapAsync(async function (req, res, next) {
         }
 
     } else {
-        logger.warning.warn(utilsLogs.faltanDatos("articulo"))
+        logger.warning.warn(utilsLogs.faltanDatos("usuario"))
         throw new MissingDatosError(utils.missingDatos())
     }
 })
-}
+
+
+/**
+ * Controlador para editar un usuario definida en el body de la request e identificada según el id en los parámetros de la request
+ * Llama a la función del modelo Usuario edit_usuario
+ * Si no existe ninguna articulo con el id enviado, devuelve un código 404, y un mensaje avisando de ello
+ * Si todo ha ido bien, devolvera un código 200 y el objeto respuesta de la consulta a la base de datos.
+ * Si alguno de los datos es incorrecto(no cumple con las restricciones de la base de datos) o no esta definido, devuelve un código 406 y un mensaje indicandolo
+ * Si la base de datos no está conectada, devuelve el código 500 y un mensaje avisando de ello
+ * @param {JSON Object} req 
+ * @param {JSON Object} res 
+ */
+exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
+    const id = req.params.id;
+    const usuario = req.body;
+
+    console.log(id)
+    console.log(usuario)
+
+    if (usuario.titulo && usuario.cuerpo && usuario.id_usuario && usuario.imagen) {
+        try {
+            await dbConn.conectar;
+            try {
+                await Usuario.edit_usuario(id, usuario)
+                    .then((result) => {
+                        if (result.value === null) {
+                            res.status(404).json(utils.noExiste('usuario'))
+                            logger.warning.warn(utilsLogs.noExiste('usuario'))
+                        } else {
+                            res.status(200).json(utils.editadoCorrectamente("usuario"))
+                            logger.access.info(utilsLogs.creadoCorrectamente("usuario", result.value._id))
+                        }
+
+
+                    }).catch((err) => {
+                        res.status(406).json(utils.parametrosIncorrectos())
+                        logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                        console.log("error 2")
+                    })
+            } catch (err) {
+                res.status(406).json(utils.parametrosIncorrectos());
+                logger.warning.warn(utilsLogs.parametrosIncorrectos());
+                console.log("error 1")
+            }
+        } catch (err) {
+            res.status(500).json(utils.baseDatosNoConectada());
+            logger.error.error(utilsLogs.baseDatosNoConectada());
+        }
+
+    } else {
+        logger.warning.warn(utilsLogs.faltanDatosAcceso("añadir un usuario"));
+        throw new MissingDatosError(utils.missingDatos())
+    }
+})
+
+
 
 
 /**

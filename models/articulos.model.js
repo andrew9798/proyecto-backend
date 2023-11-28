@@ -56,7 +56,7 @@ Articulo.add_articulo = async function(articulo) {
  * @param {JSON Object} articulo 
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
-Articulo.edit_Articulo = async function(id, articulo) {
+Articulo.edit_articulo = async function(id, articulo) {
     return Articulo.findByIdAndUpdate({ _id: id }, articulo, {runValidators: true, new: true, rawResult: true})
 }
 

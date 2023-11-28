@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 [2023-11-05T19:12:52.546] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+=======
+[2023-10-30T12:17:30.034] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+[2023-10-30T13:07:27.391] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+[2023-10-30T13:14:33.944] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+[2023-10-30T13:16:29.461] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+>>>>>>> c53a03c4e739a60b48c68eb8b7b8964eb6cea00c

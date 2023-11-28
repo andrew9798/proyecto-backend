@@ -6,7 +6,11 @@ const anyadirMorgan = require("../middleware/morgan.mw");
 /**
  * Ruta para recoger todas los articulos
  * Llama a la función get_articulos de articulos.Controller
+<<<<<<< HEAD:routes/articulos.routes.js
  * ej de ruta: https://localhost:3500/api/v1/articulos
+=======
+ * ej de ruta: https://localhost:3000/api/v1/articulos
+>>>>>>> c53a03c4e739a60b48c68eb8b7b8964eb6cea00c:routers/articulos.rooter.js
  */
 router.get("/", anyadirMorgan, articulosController.get_articulos);
 
