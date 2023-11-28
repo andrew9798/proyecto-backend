@@ -51,7 +51,7 @@ Usuario.get_usuario_by_id = async function(id) {
  */
 
 Usuario.get_usuario_by_correo_and_password = async function(){
-    //Terminar Función
+    // Terminar Función
 }
 
 /**

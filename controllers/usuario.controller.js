@@ -81,7 +81,7 @@ exports.get_usuario_by_correo_and_password = async function(req,res,next){
     try{
         try{
             await Usuario.findByemail(emailycontraseña.Correo, async function (err, user) {
-                //Terminar función
+                // Terminar función
             })
         }catch{
             res.status(406).json(utils.parametrosIncorrectos()),
@@ -202,7 +202,7 @@ exports.edit_articulo = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res 
  */
 exports.delete_usuario = utils.wrapAsync(async function (req, res, next) {
-    let id = req.params.id;
+    const id = req.params.id;
     console.log(id);
     try {
         await dbConn.conectar;

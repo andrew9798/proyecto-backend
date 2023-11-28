@@ -1,4 +1,4 @@
-const log4js = require("log4js") //npm i log4js
+const log4js = require("log4js") // npm i log4js
 
 log4js.configure({
 

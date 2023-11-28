@@ -18,7 +18,7 @@ const comentarioRoutes = require("./routes/comentario.routes");
 const usuarioRoutes = require("./routes/usuario.routes");
 
 // para la versiones
-let version = "v1";
+const version = "v1";
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

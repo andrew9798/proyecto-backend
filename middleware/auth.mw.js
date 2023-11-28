@@ -1,12 +1,12 @@
-let ID_ADMIN=1
-let ID_USER=2
-let ID_GUESS=3
+const ID_ADMIN=1
+const ID_USER=2
+const ID_GUESS=3
 
 
 const RUTA_SOLO_ADMINS = ""
 const RUTAS_PERMITIDAS_GUESS = ["/api/v1/articulos"]
 
-//Middleware de autorización
+// Middleware de autorización
 const authorization = async (req, res, next) => {
     if (req.session && req.session.usuario) {
         if (req.session.usuario[0].id_profiles === ID_ADMIN) {
