@@ -86,20 +86,20 @@ app.use((err, req, res, next) => {
 
 // -------------- Levantar el servidor ------------------------//
 
-const httpsOptions = {
-  cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
-  key: fs.readFileSync("certificadosSSL/mi_certificado.key"),
-};
+// const httpsOptions = {
+//   cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
+//   key: fs.readFileSync("certificadosSSL/mi_certificado.key"),
+// };
 
-https.createServer(httpsOptions, app).listen(port, () => {
-  console.log("Servidor HTTPS escuchando en puerto " + port);
-});
+// https.createServer(httpsOptions, app).listen(port, () => {
+//   console.log("Servidor HTTPS escuchando en puerto " + port);
+// });
 
 // ---------------- levantar servidor ---------------- //
 
-// const host = 'localhost';
+const host = 'localhost';
 
-// const server = http.createServer(app);
-// server.listen(port, host, () => {
-//     console.log(`Server is running on http://${host}:${port}`);
-// });
+const server = http.createServer(app);
+server.listen(port, host, () => {
+    console.log(`Server is running on http://${host}:${port}`);
+});
