@@ -1,14 +1,14 @@
 const express = require("express"); // npm i express
-const cors = require("cors");
+const cors = require('cors');
 const app = express();
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const session = require("express-session"); // npm i express-session
-const morgan = require("morgan"); // npm i morgan
+// const path = require("path");
+// const cookieParser = require("cookie-parser");
+// const session = require("express-session"); // npm i express-session
+// const morgan = require("morgan"); // npm i morgan
 const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3500;
 const logger = require("./logs/logger");
-const https = require("https");
+// const https = require("https");
 const http = require("http");
 const fs = require("fs");
 const utils= require("../proyecto-backend/controllers/utils");
@@ -49,30 +49,19 @@ app.use(`/api/${version}/comentarios`, comentarioRoutes);
 
 /* ------------- Aplicación del Cors* ----------------- */
 
-const whitelist = [
-  "http://127.0.0.1:3000",
-  "http://127.0.0.1:3002",
-  "http://127.0.0.1:5000",
-  "http://127.0.0.1:3500",
-  "http://127.0.0.1:3001",
-];
+const whitelist = ["http://127.0.0.1:3500", "http://127.0.0.1:5501", "http://127.0.0.1:5502", "http://127.0.0.1:5503", "http://127.0.0.1:5504", "http://127.0.0.1:5505", "http://127.0.0.1:5506"]
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1) {
-      logger.access.info("Acceso a la aplicación desde " + origin);
-      callback(null, true);
-    } else {
-      logger.error.fatal(
-        "Intento de acceso a la aplicación desde origen desautorizado: " +
-          origin
-      );
-      callback(null, false);
-    }
-  },
-  credentials: true,
-};
-
-
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1) {
+            logger.access.info("Acceso a la aplicación desde " + origin);
+            callback(null, true);
+        } else {
+            logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
+            callback(null, false);
+        }
+    },
+    credentials: true
+}
 
 app.use(cors(corsOptions));
 
@@ -81,25 +70,24 @@ app.use(cors(corsOptions));
 app.use((err, req, res, next) => {
   const { status = 500, message = utils.errInterno() } = err;
   res.status(status).send(message);
-  console.log("aquí está el problema")
 });
 
 // -------------- Levantar el servidor ------------------------//
 
-const httpsOptions = {
-  cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
-  key: fs.readFileSync("certificadosSSL/mi_certificado.key"),
-};
+// const httpsOptions = {
+//   cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
+//   key: fs.readFileSync("certificadosSSL/mi_certificado.key"),
+// };
 
-https.createServer(httpsOptions, app).listen(port, () => {
-  console.log("Servidor HTTPS escuchando en puerto " + port);
-});
+// https.createServer(httpsOptions, app).listen(port, () => {
+//   console.log("Servidor HTTPS escuchando en puerto " + port);
+// });
 
 // ---------------- levantar servidor ---------------- //
 
-// const host = 'localhost';
+const host = 'localhost';
 
-// const server = http.createServer(app);
-// server.listen(port, host, () => {
-//     console.log(`Server is running on http://${host}:${port}`);
-// });
+const server = http.createServer(app);
+server.listen(port, host, () => {
+    console.log(`Server is running on http://${host}:${port}`);
+});

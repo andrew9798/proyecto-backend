@@ -24,4 +24,19 @@ router.get("/:id", anyadirMorgan, usuarioController.get_usuario_by_id);
  */
 router.post("/",anyadirMorgan, usuarioController.add_usuario);
 
+/**
+ * Ruta para modificar un usuario definido en JSON según id definido en la url (parámetro)
+ * Llama a la función edit_usuario de usuario.Controller
+ * Ej de ruta: https://localhost:3000/api/v1/usuario/id {nombre, id_usuario y estado a través de JSON}
+ */
+router.patch("/:id", anyadirMorgan, usuarioController.edit_usuario);
+
+/**
+ * Ruta para eliminar un usuario por id definido en la url (parámetro)
+ * Llama a la función delete_ejercicio_by_usuario de ejercicio.Controller
+ * Ej de ruta: https://localhost:3000/api/v1/comentario/id {id_usuario a través de JSON}
+ */
+router.delete("/:id", anyadirMorgan, usuarioController.delete_usuario);
+
 module.exports = router
+

@@ -24,7 +24,7 @@ const logger = require("../logs/logger");
 exports.get_comentarios = utils.wrapAsync(async function (req, res, next) {
   try {
     await dbConn.conectar;
-    await Comentario.get_comentario()
+    await Comentario.get_comentarios()
       .then(
         (comentario) => res.status(200).json(comentario),
         logger.access.info(utilsLogs.accesoCorrecto("comentario"))
@@ -54,7 +54,7 @@ exports.get_comentarios = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} res
  */
 
-exports.get_comentario_by_articulo = utils.wrapAsync(
+exports.get_comentario_by_articulo = utils.wrapAsync( 
   async function (req, res, next) {
     const id_articulo = req.params.articulo;
     if (id_articulo) {

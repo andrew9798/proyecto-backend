@@ -79,8 +79,8 @@ Usuario.edit_usuario = async function(id, usuario) {
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
-Usuario.delete_Usuario = async function(id) {
-    return Usuario.findByIdAndDelete(id)
+Usuario.delete_usuario = async function(id) {
+    return Usuario.findByIdAndDelete({ _id: id })
 }
 
 module.exports = Usuario;

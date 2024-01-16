@@ -1,58 +1,16 @@
-<<<<<<< HEAD
-[2023-11-16T19:44:00.929] [INFO] access - se ha accedido a articulo 
-[2023-11-16T19:44:37.137] [INFO] access - se ha accedido a articulo 
-[2023-11-16T19:49:37.303] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:49:37 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:50:08.968] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:50:08 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:50:12.615] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:50:12 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:53:23.657] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:53:23 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:53:36.279] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:53:36 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:53:39.289] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:53:39 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:53:59.556] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:53:59 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:54:03.246] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:54:03 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:54:16.587] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:54:16 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:55:14.596] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:55:14 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:55:30.735] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:55:30 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:55:51.478] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:55:51 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T19:59:05.051] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:18:59:05 +0000] "GET /api/v1/articulos HTTP/1.1" 200 6244 "-" "PostmanRuntime/7.34.0"
-[2023-11-16T20:01:40.536] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:01:40 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:02:02.789] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:02:02 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:04:11.275] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:04:11 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:04:14.979] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:04:14 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:04:48.078] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:04:48 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:05:50.758] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:05:50 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:26:17.768] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:26:17 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:26:45.138] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:26:45 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:27:08.665] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:27:08 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-[2023-11-16T20:28:48.751] [INFO] access - se ha accedido a articulo 
-::1 - - [16/Nov/2023:19:28:48 +0000] "GET /api/v1/articulos HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
-=======
-[2023-10-30T12:17:37.298] [INFO] access - se ha accedido a comentario 
-[2023-10-30T12:18:28.663] [INFO] access - Se ha modificado comentario con el id 651d4421fa074cbbeb4932ac
-[2023-10-30T13:07:30.793] [INFO] access - se ha accedido a articulo 
-[2023-10-30T13:07:52.780] [INFO] access - Se ha eliminado un elemento articulo con el id 653a277b686ca9a49e062928
-[2023-10-30T13:14:37.323] [INFO] access - se ha accedido a comentario 
-[2023-10-30T13:14:52.197] [INFO] access - Se ha eliminado un elemento comentario con el id 653a2929e9572f522bab94ad
-[2023-10-30T13:15:31.296] [INFO] access - se ha accedido a usuario 
->>>>>>> c53a03c4e739a60b48c68eb8b7b8964eb6cea00c
+[2024-01-16T20:15:55.025] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:15:55.066] [INFO] access - se ha accedido a Comentarios del articulo: 654645bcbb3060f81e818d56 
+[2024-01-16T20:17:30.044] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:17:42.732] [INFO] access - se ha accedido a Comentarios del articulo: 654645bcbb3060f81e818d54 
+[2024-01-16T20:17:42.744] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:18:41.721] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:18:45.810] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:22:02.005] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:44:37.826] [INFO] access - se ha accedido a Comentarios del articulo: 654645bcbb3060f81e818d56 
+[2024-01-16T20:44:37.832] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:44:41.822] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:44:41.824] [INFO] access - se ha accedido a Comentarios del articulo: 654645bcbb3060f81e818d56 
+[2024-01-16T20:46:00.908] [INFO] access - se ha accedido a Comentarios del articulo: 654645bcbb3060f81e818d56 
+[2024-01-16T20:46:00.928] [INFO] access - se ha accedido a articulo 
+[2024-01-16T20:46:08.150] [INFO] access - se ha accedido a Comentarios del articulo: 654645bcbb3060f81e818d56 
+[2024-01-16T20:46:08.171] [INFO] access - se ha accedido a articulo 
