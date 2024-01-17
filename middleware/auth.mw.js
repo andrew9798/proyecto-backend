@@ -4,6 +4,7 @@ let ID_GUESS=3
 
 
 const RUTA_SOLO_ADMINS = ""
+const RUTAS_SOLO_USERS=""
 const RUTAS_PERMITIDAS_GUESS = ["/api/v1/articulos"]
 
 //Middleware de autorización

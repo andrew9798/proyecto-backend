@@ -8,7 +8,6 @@ const morgan = require("morgan"); // npm i morgan
 const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3500;
 const logger = require("./logs/logger");
-const https = require("https");
 const http = require("http");
 const fs = require("fs");
 const utils= require("../proyecto-backend/controllers/utils");
@@ -16,6 +15,7 @@ const utils= require("../proyecto-backend/controllers/utils");
 const articulosRoutes = require("./routes/articulos.routes");
 const comentarioRoutes = require("./routes/comentario.routes");
 const usuarioRoutes = require("./routes/usuario.routes");
+const authRoute = require("./routes/authRoute")
 
 // para la versiones
 let version = "v1";
@@ -83,17 +83,6 @@ app.use((err, req, res, next) => {
   res.status(status).send(message);
   console.log("aquí está el problema")
 });
-
-// -------------- Levantar el servidor ------------------------//
-
-// const httpsOptions = {
-//   cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
-//   key: fs.readFileSync("certificadosSSL/mi_certificado.key"),
-// };
-
-// https.createServer(httpsOptions, app).listen(port, () => {
-//   console.log("Servidor HTTPS escuchando en puerto " + port);
-// });
 
 // ---------------- levantar servidor ---------------- //
 

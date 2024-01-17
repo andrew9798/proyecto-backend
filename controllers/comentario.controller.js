@@ -24,7 +24,7 @@ const logger = require("../logs/logger");
 exports.get_comentarios = utils.wrapAsync(async function (req, res, next) {
   try {
     await dbConn.conectar;
-    await Comentario.get_comentario()
+    await Comentario.get_comentarios()
       .then(
         (comentario) => res.status(200).json(comentario),
         logger.access.info(utilsLogs.accesoCorrecto("comentario"))

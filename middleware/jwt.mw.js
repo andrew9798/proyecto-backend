@@ -24,7 +24,7 @@ exports.requireJWT = (req, res, next) => {
     const token = this.extractToken(req);
 
     if (token) {
-        jwt.verify(token, this.claveJWT, (err, token_decoded) => {
+        jwt.verify(token, this.claveJWT, (err, tokenDecode) => {
             if (err) {
                 res.status(401).json({msg: err}) 
             } else {
