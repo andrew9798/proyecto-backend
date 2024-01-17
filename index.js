@@ -8,7 +8,10 @@ const app = express();
 const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3500;
 const logger = require("./logs/logger");
+<<<<<<< HEAD
 // const https = require("https");
+=======
+>>>>>>> 01f5fd3ba91544c35ffaad54b3feb5fee8ab61f6
 const http = require("http");
 const fs = require("fs");
 const utils= require("../proyecto-backend/controllers/utils");
@@ -16,6 +19,7 @@ const utils= require("../proyecto-backend/controllers/utils");
 const articulosRoutes = require("./routes/articulos.routes");
 const comentarioRoutes = require("./routes/comentario.routes");
 const usuarioRoutes = require("./routes/usuario.routes");
+const authRoute = require("./routes/authRoute")
 
 // para la versiones
 const version = "v1";
@@ -71,17 +75,6 @@ app.use((err, req, res, next) => {
   const { status = 500, message = utils.errInterno() } = err;
   res.status(status).send(message);
 });
-
-// -------------- Levantar el servidor ------------------------//
-
-// const httpsOptions = {
-//   cert: fs.readFileSync("certificadosSSL/mi_certificado.crt"),
-//   key: fs.readFileSync("certificadosSSL/mi_certificado.key"),
-// };
-
-// https.createServer(httpsOptions, app).listen(port, () => {
-//   console.log("Servidor HTTPS escuchando en puerto " + port);
-// });
 
 // ---------------- levantar servidor ---------------- //
 
