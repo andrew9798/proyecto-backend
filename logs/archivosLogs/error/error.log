@@ -1,32 +1,116 @@
-<<<<<<< HEAD
-[2024-01-15T11:45:53.709] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
-[2024-01-15T11:45:54.439] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
-[2024-01-15T11:46:13.983] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
-[2024-01-15T11:46:14.423] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
-[2024-01-15T13:31:26.795] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:32:13.507] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:33:23.644] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:33:36.449] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-[2024-01-15T13:33:39.076] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:34:58.333] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:35:54.111] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:36:38.651] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:36:44.820] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:38:15.455] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-[2024-01-15T13:38:17.988] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:39:14.113] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:41:00.131] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:55:30.233] [ERROR] error - La base de datos no conectada
-[2024-01-15T13:55:34.449] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-[2024-01-15T13:55:36.496] [ERROR] error - La base de datos no conectada
-=======
-<<<<<<< HEAD
-[2023-11-05T19:12:52.546] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-=======
-[2023-10-30T12:17:30.034] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-[2023-10-30T13:07:27.391] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-[2023-10-30T13:14:33.944] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
-[2023-10-30T13:16:29.461] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
->>>>>>> c53a03c4e739a60b48c68eb8b7b8964eb6cea00c
-[2024-01-16T22:51:11.119] [ERROR] error - La base de datos no conectada
->>>>>>> 01f5fd3ba91544c35ffaad54b3feb5fee8ab61f6
+[2024-01-18T17:03:14.060] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:04:47.771] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:05:23.068] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+[2024-01-18T17:12:30.778] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:12:31.809] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:17.157] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:18.152] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:18.336] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:18.521] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:18.688] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:18.864] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:19.025] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:19.176] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:19.329] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:19.496] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:13:27.715] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:14:01.610] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:14:02.582] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:14:24.338] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: undefined
+[2024-01-18T17:16:42.158] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T17:16:43.732] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T19:51:33.102] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T19:57:36.912] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T19:57:39.384] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T20:42:13.027] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T20:42:15.465] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T20:42:27.824] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T20:42:27.931] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T20:42:38.950] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:03:20.748] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:04:17.062] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:04:17.769] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:04:43.409] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:04:47.936] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:01.289] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:02.482] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:03.619] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:04.272] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:04.704] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:04.882] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:05.046] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:05.210] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:05.376] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:05.544] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:05.714] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:05.865] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.022] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.181] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.344] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.507] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.673] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.832] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:06.985] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:07.158] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:07.334] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:07.633] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:07.806] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:08.031] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:08.239] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:08.398] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:08.569] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:08.742] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:08.919] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:09.082] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:09.276] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:09.483] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:09.665] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:09.846] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:10.023] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:10.205] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:10.381] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:10.543] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:10.725] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:10.894] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:11.063] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:11.238] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:11.406] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:11.564] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:11.734] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:11.906] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:12.053] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:12.241] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:12.406] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:12.577] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:12.742] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:12.892] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:13.062] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:13.248] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:13.423] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:13.753] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:13.918] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:14.103] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:14.262] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:14.422] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:14.767] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:14.942] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:15.128] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:15.413] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:15.557] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:15.738] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:15.910] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:16.062] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:16.197] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:16.416] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:16.595] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:16.808] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:19.909] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:20.054] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:20.229] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:20.414] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:20.581] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:20.766] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:21.104] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:21.270] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:21.487] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000
+[2024-01-18T21:06:21.638] [FATAL] error - Intento de acceso a la aplicación desde origen desautorizado: http://localhost:3000

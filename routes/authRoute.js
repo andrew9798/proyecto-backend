@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const authMiddleware = require("../middlewares/authMiddleware");
+const auth = require("../middleware/auth.mw");
 
 // Ruta para el inicio de sesión
-router.post("/login", authMiddleware.login, (req, res) => {
+router.post("/login", auth, (req, res) => {
   res.status(200).json({ success: true, token: req.session.token });
 });
 

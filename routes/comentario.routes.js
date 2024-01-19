@@ -36,7 +36,7 @@ router.patch("/:id", anyadirMorgan, comentarioController.edit_comentario);
  * Llama a la función delete_ejercicio_by_usuario de ejercicio.Controller
  * Ej de ruta: http://localhost:3000/api/v1/comentarios/id {id_usuario a través de JSON}
  */
-router.delete("/:id", anyadirMorgan, comentarioController.delete_comentario);
+router.delete("/:id", anyadirMorgan, comentarioController.delete_comentario_by_id);
 
 /**
  * Ruta para eliminar todos los comentarios de un articulo según id definido en JSON

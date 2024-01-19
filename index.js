@@ -8,10 +8,7 @@ const app = express();
 const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3500;
 const logger = require("./logs/logger");
-<<<<<<< HEAD
 // const https = require("https");
-=======
->>>>>>> 01f5fd3ba91544c35ffaad54b3feb5fee8ab61f6
 const http = require("http");
 const fs = require("fs");
 const utils= require("../proyecto-backend/controllers/utils");
@@ -29,6 +26,7 @@ app.use(express.json());
 app.use(`/api/${version}/articulos`, articulosRoutes);
 app.use(`/api/${version}/usuarios`, usuarioRoutes);
 app.use(`/api/${version}/comentarios`, comentarioRoutes);
+app.use(`/api/${version}/login`, authRoute);
 
 // ------------- COOKIES ---------------------------//
 
@@ -53,21 +51,28 @@ app.use(`/api/${version}/comentarios`, comentarioRoutes);
 
 /* ------------- Aplicación del Cors* ----------------- */
 
-const whitelist = ["http://127.0.0.1:3500", "http://127.0.0.1:5501", "http://127.0.0.1:5502", "http://127.0.0.1:5503", "http://127.0.0.1:5504", "http://127.0.0.1:5505", "http://127.0.0.1:5506"]
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (whitelist.indexOf(origin) !== -1) {
-            logger.access.info("Acceso a la aplicación desde " + origin);
-            callback(null, true);
-        } else {
-            logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
-            callback(null, false);
-        }
-    },
-    credentials: true
-}
+// const whitelist = ["http://127.0.0.1:3500", "http://127.0.0.1:5501", "http://127.0.0.1:5502", "http://127.0.0.1:5503", "http://127.0.0.1:5504", "http://127.0.0.1:5505", "http://127.0.0.1:5506"]
+// const corsOptions = {
+//     origin: (origin, callback) => {
+//         if (whitelist.indexOf(origin) !== -1) {
+//             logger.access.info("Acceso a la aplicación desde " + origin);
+//             callback(null, true);
+//         } else {
+//             logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
+//             callback(null, false);
+//         }
+//     },
+//     credentials: true
+// }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+  });
 
 // -------------- error 500 ---------------------------//
 

@@ -80,8 +80,8 @@ Comentario.edit_comentario = async function(id,comentario) {
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos
  */
-Comentario.delete_comentario = async function(_id) {
-    return Comentario.findByIdAndDelete({ _id })
+Comentario.delete_comentario = async function(id) {
+    return Comentario.findByIdAndDelete({ _id: id })
 }
 
 /**
