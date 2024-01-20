@@ -28,6 +28,9 @@ app.use(`/api/${version}/usuarios`, usuarioRoutes);
 app.use(`/api/${version}/comentarios`, comentarioRoutes);
 app.use(`/api/${version}/login`, authRoute);
 
+
+  
+
 // ------------- COOKIES ---------------------------//
 
 // app.use("/cookieSession", function (req, res, next) {
@@ -51,35 +54,29 @@ app.use(`/api/${version}/login`, authRoute);
 
 /* ------------- Aplicación del Cors* ----------------- */
 
-// const whitelist = ["http://127.0.0.1:3500", "http://127.0.0.1:5501", "http://127.0.0.1:5502", "http://127.0.0.1:5503", "http://127.0.0.1:5504", "http://127.0.0.1:5505", "http://127.0.0.1:5506"]
-// const corsOptions = {
-//     origin: (origin, callback) => {
-//         if (whitelist.indexOf(origin) !== -1) {
-//             logger.access.info("Acceso a la aplicación desde " + origin);
-//             callback(null, true);
-//         } else {
-//             logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
-//             callback(null, false);
-//         }
-//     },
-//     credentials: true
-// }
+const whitelist = ["http://127.0.0.1:3500", "http://127.0.0.1:5501", "http://127.0.0.1:5502", "http://127.0.0.1:5503", "http://127.0.0.1:5504", "http://127.0.0.1:5505", "http://127.0.0.1:5506"]
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1) {
+            logger.access.info("Acceso a la aplicación desde " + origin);
+            callback(null, true);
+        } else {
+            logger.error.fatal("Intento de acceso a la aplicación desde origen desautorizado: " + origin)
+            callback(null, false);
+        }
+    },
+    credentials: true
+}
 
-// app.use(cors(corsOptions));
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-  });
+app.use(cors(corsOptions));
 
 // -------------- error 500 ---------------------------//
 
 app.use((err, req, res, next) => {
-  const { status = 500, message = utils.errInterno() } = err;
-  res.status(status).send(message);
-});
+    const { status = 500, message = utils.errInterno() } = err;
+    res.status(status).send(message);
+    return;  // Agrega este return para evitar problemas de encabezados después de enviar la respuesta
+  });
 
 // ---------------- levantar servidor ---------------- //
 
