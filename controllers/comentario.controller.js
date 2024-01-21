@@ -44,6 +44,46 @@ exports.get_comentarios = utils.wrapAsync(async function (req, res, next) {
 });
 
 /**
+ * Controlador el cual nos ayuda a encontrar los comentarios por id que esta definido en la request
+ * Llama a la función del modelo Comentario get_comentario_by_id
+ * Si no existe ningun articulo con el id enviado, devuelve un código 404, y un mensaje avisando de ello
+ * Si todo ha ido bien, devolvera un código 200 y el objeto respuesta de la consulta a la base de datos.
+ * Si el id es incorrecto (formato imposible de parsear como id de mongodb), devolvera un código 406 y un mensaje avisando de ello
+ * Si la base de datos se encuentra conectada pero ha ocurrido algún error, nos devolvera un código 500 y el error.
+ * Si la base de datos no esta conectada, nos devolvera un error 500y un mensaje avidando de que no se encuentra conectada.
+ * @param {JSON Object} req
+ * @param {JSON Object} res
+ */
+exports.get_comentario_by_id = utils.wrapAsync(async function (req, res, next) {
+  const id = req.params.id;
+  try {
+    await dbConn.conectar;
+    try {
+      await Comentario.get_comentario_by_id(id)
+        .then((comentario) => {
+          if (comentario === null) {
+            res.status(404).json(utils.noExiste("comentario"));
+            logger.warning.warn(utilsLogs.noExiste("comentario"));
+          } else {
+            res.status(200).json(comentario);
+            logger.access.info(utilsLogs.accesoCorrecto("comentario"));
+          }
+        })
+        .catch(
+          (err) => res.status(406).json(utils.parametrosIncorrectos()),
+          logger.warning.warn(utilsLogs.parametrosIncorrectos())
+        );
+    } catch (err) {
+      res.status(406).json(utils.parametrosIncorrectos());
+      logger.warning.warn(utilsLogs.parametrosIncorrectos());
+    }
+  } catch (err) {
+    res.status(500).json(utils.baseDatosNoConectada());
+    logger.error.error(utilsLogs.baseDatosNoConectada());
+  }
+});
+
+/**
  * Controlador para encontrar un comentario por id definido en la request.
  * Llama a la fución del modelo Comentario get_comentario_by_id.
  * Si el comentario con ese id no existe, devuelve código 404 y un mensaje avisando de ello.
@@ -53,8 +93,6 @@ exports.get_comentarios = utils.wrapAsync(async function (req, res, next) {
  * @param {JSON Object} req
  * @param {JSON Object} res
  */
-
-
 
 exports.get_comentario_by_articulo = utils.wrapAsync( 
   async function (req, res, next) {

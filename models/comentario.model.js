@@ -37,6 +37,15 @@ Comentario.get_comentarios = async function() {
 }
 
 /**
+ * Recoger de la base de datos un comentario por id
+ * @param {String} id 
+ * @returns la Promesa resultante de hacer la consulta a la base de datos.
+ */
+Comentario.get_comentario_by_id = async function(id) {
+    return Comentario.findById({_id: id})
+} 
+
+/**
  * Recoger de la base de datos los comentarios que hay dentro de un articulo definido por id del articulo.
  * @param {String} id 
  * @returns la Promesa resultante de hacer la consulta a la base de datos.
